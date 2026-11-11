@@ -1,0 +1,382 @@
+%PDF-1.4
+%ту╧╙
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Pages /Kids [7 0 R 9 0 R 11 0 R] /Count 3 >>
+endobj
+6 0 obj
+<< /Length 7389 >>
+stream
+0.070 0.160 0.290 rg
+0.00 733.89 595.28 108.00 re f
+0.140 0.320 0.550 rg
+36.00 805.89 210.00 18.00 re f
+BT /F2 8.0 Tf 0.920 0.960 1.000 rg 44.00 811.65 Td (BEGINNER-FRIENDLY AI / ML GUIDE) Tj ET
+BT /F2 21.0 Tf 1.000 1.000 1.000 rg 36.00 785.89 Td (How to Build Any Machine Learning Model) Tj ET
+BT /F1 10.2 Tf 0.800 0.880 0.970 rg 36.00 764.89 Td (The Complete 5-Step Lifecycle Explained Simply  Х  With Real Cybersecurity Project Examples) Tj ET
+BT /F2 12.5 Tf 0.070 0.160 0.290 rg 36.00 717.89 Td (THE GOLDEN RULE: Why You Always Need BOTH Dataset & Model) Tj ET
+0.940 0.980 0.960 rg
+0.180 0.600 0.450 RG
+1.00 w
+36.00 601.89 254.64 106.00 re B
+0.110 0.480 0.260 rg
+48.00 680.89 146.00 17.00 re f
+BT /F2 8.5 Tf 1.000 1.000 1.000 rg 56.00 686.33 Td (PART 1: DATASET IS FIRST) Tj ET
+BT /F2 10.5 Tf 0.100 0.130 0.180 rg 48.00 667.89 Td (Without Data, You Cannot Make a Model) Tj ET
+BT /F1 8.8 Tf 0.200 0.240 0.300 rg 48.00 652.89 Td (Think of the Dataset as the TEXTBOOK or) Tj ET
+BT /F1 8.8 Tf 0.200 0.240 0.300 rg 48.00 640.69 Td (FUEL. It is a collection of past examples) Tj ET
+BT /F1 8.8 Tf 0.200 0.240 0.300 rg 48.00 628.49 Td (and facts. Without examples to study, an AI) Tj ET
+BT /F1 8.8 Tf 0.200 0.240 0.300 rg 48.00 616.29 Td (algorithm has nothing to learn from. Dataset) Tj ET
+BT /F1 8.8 Tf 0.200 0.240 0.300 rg 48.00 604.09 Td (is 100% mandatory.) Tj ET
+0.940 0.960 1.000 rg
+0.220 0.450 0.780 RG
+304.64 601.89 254.64 106.00 re B
+0.130 0.360 0.680 rg
+316.64 680.89 142.00 17.00 re f
+BT /F2 8.5 Tf 1.000 1.000 1.000 rg 324.64 686.33 Td (PART 2: THEN THE MODEL) Tj ET
+BT /F2 10.5 Tf 0.100 0.130 0.180 rg 316.64 667.89 Td (The Algorithm That Learns From Data) Tj ET
+BT /F1 8.8 Tf 0.200 0.240 0.300 rg 316.64 652.89 Td (Think of the Model as the STUDENT'S BRAIN or) Tj ET
+BT /F1 8.8 Tf 0.200 0.240 0.300 rg 316.64 640.69 Td (ENGINE. It is a mathematical formula that) Tj ET
+BT /F1 8.8 Tf 0.200 0.240 0.300 rg 316.64 628.49 Td (reads the dataset, discovers hidden) Tj ET
+BT /F1 8.8 Tf 0.200 0.240 0.300 rg 316.64 616.29 Td (patterns, and learns how to make decisions) Tj ET
+BT /F1 8.8 Tf 0.200 0.240 0.300 rg 316.64 604.09 Td (on new data.) Tj ET
+0.960 0.970 0.990 rg
+0.830 0.860 0.910 RG
+0.80 w
+36.00 511.89 523.28 74.00 re B
+BT /F2 9.2 Tf 0.070 0.160 0.290 rg 48.00 569.89 Td (THE MANDATORY 5-STEP ORDER TO BUILD ANY AI MODEL:) Tj ET
+0.110 0.480 0.260 rg
+46.00 522.89 90.00 38.00 re f
+BT /F2 8.8 Tf 1.000 1.000 1.000 rg 53.00 545.89 Td (1. Dataset) Tj ET
+BT /F1 7.8 Tf 0.920 0.960 1.000 rg 53.00 531.89 Td (Collect data) Tj ET
+BT /F2 8.5 Tf 0.070 0.160 0.290 rg 138.00 538.89 Td (->) Tj ET
+0.080 0.450 0.420 rg
+147.00 522.89 90.00 38.00 re f
+BT /F2 8.8 Tf 1.000 1.000 1.000 rg 154.00 545.89 Td (2. Preprocess) Tj ET
+BT /F1 7.8 Tf 0.920 0.960 1.000 rg 154.00 531.89 Td (Clean & scale) Tj ET
+BT /F2 8.5 Tf 0.070 0.160 0.290 rg 239.00 538.89 Td (->) Tj ET
+0.130 0.360 0.680 rg
+248.00 522.89 90.00 38.00 re f
+BT /F2 8.8 Tf 1.000 1.000 1.000 rg 255.00 545.89 Td (3. Select Model) Tj ET
+BT /F1 7.8 Tf 0.920 0.960 1.000 rg 255.00 531.89 Td (Pick algorithm) Tj ET
+BT /F2 8.5 Tf 0.070 0.160 0.290 rg 340.00 538.89 Td (->) Tj ET
+0.380 0.220 0.620 rg
+349.00 522.89 90.00 38.00 re f
+BT /F2 8.8 Tf 1.000 1.000 1.000 rg 356.00 545.89 Td (4. Training) Tj ET
+BT /F1 7.8 Tf 0.920 0.960 1.000 rg 356.00 531.89 Td (Learn patterns) Tj ET
+BT /F2 8.5 Tf 0.070 0.160 0.290 rg 441.00 538.89 Td (->) Tj ET
+0.760 0.410 0.060 rg
+450.00 522.89 90.00 38.00 re f
+BT /F2 8.8 Tf 1.000 1.000 1.000 rg 457.00 545.89 Td (5. Evaluation) Tj ET
+BT /F1 7.8 Tf 0.920 0.960 1.000 rg 457.00 531.89 Td (Test accuracy) Tj ET
+1.000 1.000 1.000 rg
+0.110 0.480 0.260 RG
+1.20 w
+36.00 58.89 523.28 435.00 re B
+0.110 0.480 0.260 rg
+36.00 461.89 523.28 32.00 re f
+BT /F2 11.5 Tf 1.000 1.000 1.000 rg 48.00 472.89 Td (STEP 1: DATASET  Ч  Collect or Download Data Related to Your Problem) Tj ET
+BT /F2 10.5 Tf 0.100 0.130 0.180 rg 48.00 445.89 Td (1. What is a Dataset in Simple Words?) Tj ET
+BT /F1 9.3 Tf 0.200 0.240 0.300 rg 48.00 430.89 Td (A dataset is simply a structured table \(like an Excel sheet or CSV file\) full of real) Tj ET
+BT /F1 9.3 Tf 0.200 0.240 0.300 rg 48.00 417.89 Td (examples related to your problem. Every row is one example \(a record\), and every column is a) Tj ET
+BT /F1 9.3 Tf 0.200 0.240 0.300 rg 48.00 404.89 Td (specific clue or measurement \(called a Feature\).) Tj ET
+BT /F2 10.5 Tf 0.100 0.130 0.180 rg 48.00 383.89 Td (2. The Two Parts Inside Every Supervised Dataset:) Tj ET
+BT /F2 9.2 Tf 0.110 0.480 0.260 rg 58.00 368.89 Td (Х Features \(Input Clues / X\):) Tj ET
+BT /F1 9.1 Tf 0.200 0.240 0.300 rg 192.00 368.89 Td (The measurements the model looks at \(e.g., packet size, protocol, duration\).) Tj ET
+BT /F2 9.2 Tf 0.110 0.480 0.260 rg 58.00 353.89 Td (Х Label \(Target Answer / y\):) Tj ET
+BT /F1 9.1 Tf 0.200 0.240 0.300 rg 192.00 353.89 Td (The correct answer we want the model to predict \('Normal' vs 'Cyber Attack'\).) Tj ET
+BT /F2 10.5 Tf 0.100 0.130 0.180 rg 48.00 333.89 Td (3. Everyday Examples of Datasets:) Tj ET
+BT /F2 9.2 Tf 0.100 0.130 0.180 rg 58.00 318.89 Td (Х Email Spam Filter:) Tj ET
+BT /F1 9.2 Tf 0.200 0.240 0.300 rg 165.00 318.89 Td (100,000 past emails labeled as 'Spam' or 'Not Spam'.) Tj ET
+BT /F2 9.2 Tf 0.100 0.130 0.180 rg 58.00 304.89 Td (Х House Price AI:) Tj ET
+BT /F1 9.2 Tf 0.200 0.240 0.300 rg 165.00 304.89 Td (50,000 sold homes with square footage, bedrooms, zip code, and sale price.) Tj ET
+BT /F2 9.2 Tf 0.100 0.130 0.180 rg 58.00 290.89 Td (Х Medical Diagnosis:) Tj ET
+BT /F1 9.2 Tf 0.200 0.240 0.300 rg 165.00 290.89 Td (Chest X-ray images labeled by doctors as 'Healthy' or 'Pneumonia'.) Tj ET
+0.940 0.980 0.960 rg
+0.650 0.850 0.720 RG
+0.80 w
+48.00 132.89 499.28 138.00 re B
+0.110 0.480 0.260 rg
+60.00 244.89 260.00 16.00 re f
+BT /F2 8.0 Tf 1.000 1.000 1.000 rg 68.00 250.01 Td (IN OUR CYBERSECURITY PROJECT \(src/data_ingestion.py\)) Tj ET
+BT /F2 9.8 Tf 0.100 0.130 0.180 rg 60.00 230.89 Td (Benchmark Dataset Used: NSL-KDD Network Intrusion Dataset) Tj ET
+BT /F2 9.0 Tf 0.100 0.130 0.180 rg 60.00 214.89 Td (Х Total Records Collected:) Tj ET
+BT /F1 9.0 Tf 0.200 0.240 0.300 rg 185.00 214.89 Td (148,517 network connections \(125,973 Training + 22,544 Testing records\).) Tj ET
+BT /F2 9.0 Tf 0.100 0.130 0.180 rg 60.00 199.89 Td (Х Raw Features \(Clues\):) Tj ET
+BT /F1 9.0 Tf 0.200 0.240 0.300 rg 185.00 199.89 Td (41 network attributes per connection \(duration, protocol_type, service, flag...\).) Tj ET
+BT /F2 9.0 Tf 0.100 0.130 0.180 rg 60.00 184.89 Td (Х Target Labels \(Classes\):) Tj ET
+BT /F1 9.0 Tf 0.200 0.240 0.300 rg 185.00 184.89 Td (5 Categories -> Normal, DoS \(Denial of Service\), Probe, R2L, and U2R.) Tj ET
+BT /F2 8.8 Tf 0.110 0.480 0.260 rg 60.00 166.89 Td (Code Command:) Tj ET
+BT /F4 8.2 Tf 0.100 0.130 0.180 rg 135.00 166.89 Td (train_df = load_dataset\('train'\)   # Loads KDDTrain+.txt into a DataFrame) Tj ET
+BT /F2 8.8 Tf 0.110 0.480 0.260 rg 60.00 150.89 Td (Key Takeaway:) Tj ET
+BT /F3 8.8 Tf 0.200 0.240 0.300 rg 135.00 150.89 Td (Garbage In = Garbage Out! High-quality, relevant data is the foundation of accuracy.) Tj ET
+0.840 0.860 0.900 RG
+0.60 w
+36.00 37.89 m 559.28 37.89 l S
+BT /F1 8.0 Tf 0.450 0.490 0.550 rg 36.00 23.89 Td (AI / Machine Learning Model Building Guide  Х  Dataset -> Preprocessing -> Model -> Training -> Evaluation) Tj ET
+BT /F2 8.0 Tf 0.300 0.350 0.420 rg 507.28 23.89 Td (Page 1 of 3) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 5 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R /F4 4 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Length 7008 >>
+stream
+0.070 0.160 0.290 rg
+0.00 789.89 595.28 52.00 re f
+BT /F2 14.5 Tf 1.000 1.000 1.000 rg 36.00 809.89 Td (Steps 2 & 3: Preparing Your Data & Choosing the Right Brain \(Model\)) Tj ET
+1.000 1.000 1.000 rg
+0.080 0.450 0.420 RG
+1.20 w
+36.00 433.89 523.28 340.00 re B
+0.080 0.450 0.420 rg
+36.00 743.89 523.28 30.00 re f
+BT /F2 11.2 Tf 1.000 1.000 1.000 rg 48.00 753.89 Td (STEP 2: DATA PREPROCESSING  Ч  Cleaning, Removing Null Values & Normalization) Tj ET
+BT /F2 10.2 Tf 0.100 0.130 0.180 rg 48.00 727.89 Td (Why Can't We Feed Raw Data Directly to a Model?) Tj ET
+BT /F1 9.2 Tf 0.200 0.240 0.300 rg 48.00 713.89 Td (Real-world data is messy! Just like you wash, peel, and chop vegetables before cooking, you) Tj ET
+BT /F1 9.2 Tf 0.200 0.240 0.300 rg 48.00 701.09 Td (must clean and format raw data before a mathematical model can understand it.) Tj ET
+BT /F2 10.2 Tf 0.100 0.130 0.180 rg 48.00 682.29 Td (The 4 Essential Tasks Inside Data Preprocessing:) Tj ET
+BT /F2 8.8 Tf 0.080 0.450 0.420 rg 54.00 667.29 Td (1. Remove Nulls & Clean:) Tj ET
+BT /F1 8.6 Tf 0.200 0.240 0.300 rg 184.00 667.29 Td (Delete or fill empty cells \(NaN/Null\) and fix broken rows so math calculations never crash.) Tj ET
+BT /F2 8.8 Tf 0.080 0.450 0.420 rg 54.00 651.29 Td (2. Encode Text to Numbers:) Tj ET
+BT /F1 8.6 Tf 0.200 0.240 0.300 rg 184.00 651.29 Td (Models only understand numbers! Convert text like protocol \('tcp', 'udp', 'icmp'\) into \(0, 1, 2\).) Tj ET
+BT /F2 8.8 Tf 0.080 0.450 0.420 rg 54.00 635.29 Td (3. Normalization \(Scaling\):) Tj ET
+BT /F1 8.6 Tf 0.200 0.240 0.300 rg 184.00 635.29 Td (Scale huge numbers \(src_bytes=500,000\) and tiny rates \(0.05\) to the same [0.0 to 1.0] range.) Tj ET
+BT /F2 8.8 Tf 0.080 0.450 0.420 rg 54.00 619.29 Td (4. Train / Test Split:) Tj ET
+BT /F1 8.6 Tf 0.200 0.240 0.300 rg 184.00 619.29 Td (Split data into Training Set \(~80% to learn from\) and Testing Set \(~20% for the final exam\).) Tj ET
+0.930 0.980 0.980 rg
+0.600 0.840 0.820 RG
+0.80 w
+48.00 495.29 499.28 102.00 re B
+0.080 0.450 0.420 rg
+60.00 572.29 282.00 16.00 re f
+BT /F2 8.0 Tf 1.000 1.000 1.000 rg 68.00 577.41 Td (IN OUR CYBERSECURITY PROJECT \(src/feature_engineering.py\)) Tj ET
+BT /F2 8.8 Tf 0.100 0.130 0.180 rg 60.00 561.29 Td (Х Categorical Encoding:) Tj ET
+BT /F1 8.7 Tf 0.200 0.240 0.300 rg 172.00 561.29 Td (LabelEncoder converts 'protocol_type', 'service', and 'flag' into numeric codes.) Tj ET
+BT /F2 8.8 Tf 0.100 0.130 0.180 rg 60.00 546.29 Td (Х Derived Features \(+7\):) Tj ET
+BT /F1 8.7 Tf 0.200 0.240 0.300 rg 172.00 546.29 Td (Engineers bytes_ratio, traffic_intensity, srv_diversity, total_error_rate, etc.) Tj ET
+BT /F2 8.8 Tf 0.100 0.130 0.180 rg 60.00 531.29 Td (Х MinMax Normalization:) Tj ET
+BT /F1 8.7 Tf 0.200 0.240 0.300 rg 172.00 531.29 Td (Scales all 48 features cleanly into the [0.0, 1.0] range via MinMaxScaler\(\).) Tj ET
+BT /F2 8.7 Tf 0.080 0.450 0.420 rg 60.00 513.29 Td (Code Command:) Tj ET
+BT /F4 8.0 Tf 0.100 0.130 0.180 rg 135.00 513.29 Td (X_train_scaled = scaler.fit_transform\(X_train\)   # Outputs 48 normalized columns) Tj ET
+1.000 1.000 1.000 rg
+0.130 0.360 0.680 RG
+1.20 w
+36.00 51.89 523.28 366.00 re B
+0.130 0.360 0.680 rg
+36.00 387.89 523.28 30.00 re f
+BT /F2 10.8 Tf 1.000 1.000 1.000 rg 48.00 397.89 Td (STEP 3: MODEL SELECTION  Ч  Choose Algorithm \(Random Forest, CNN, LSTM, BERT\)) Tj ET
+BT /F2 10.2 Tf 0.100 0.130 0.180 rg 48.00 371.89 Td (How Do You Know Which Model to Pick?) Tj ET
+BT /F1 9.2 Tf 0.200 0.240 0.300 rg 48.00 357.89 Td (No single model is best for everything! You pick the algorithm based on WHAT KIND OF DATA) Tj ET
+BT /F1 9.2 Tf 0.200 0.240 0.300 rg 48.00 345.09 Td (you have \(spreadsheet tables, images, time-series sequences, or human language text\).) Tj ET
+BT /F2 10.0 Tf 0.100 0.130 0.180 rg 48.00 326.29 Td (Beginner's Cheat-Sheet: Which Model Should I Choose?) Tj ET
+0.890 0.930 0.980 rg
+48.00 296.29 499.28 20.00 re f
+BT /F2 8.6 Tf 0.070 0.160 0.290 rg 54.00 302.29 Td (Model / Algorithm) Tj ET
+BT /F2 8.6 Tf 0.070 0.160 0.290 rg 155.00 302.29 Td (Best Data Type) Tj ET
+BT /F2 8.6 Tf 0.070 0.160 0.290 rg 252.00 302.29 Td (How It Works Simply & Best Use Case) Tj ET
+0.970 0.980 1.000 rg
+48.00 277.29 499.28 19.00 re f
+BT /F2 8.4 Tf 0.130 0.360 0.680 rg 54.00 283.29 Td (Random Forest) Tj ET
+BT /F2 8.3 Tf 0.100 0.130 0.180 rg 155.00 283.29 Td (Tabular / Tables) Tj ET
+BT /F1 8.2 Tf 0.200 0.240 0.300 rg 252.00 283.29 Td (Hundreds of Decision Trees vote together. Fast & accurate for tables.) Tj ET
+1.000 1.000 1.000 rg
+48.00 258.29 499.28 19.00 re f
+BT /F2 8.4 Tf 0.130 0.360 0.680 rg 54.00 264.29 Td (Deep Neural Net \(MLP\)) Tj ET
+BT /F2 8.3 Tf 0.100 0.130 0.180 rg 155.00 264.29 Td (Complex Tables) Tj ET
+BT /F1 8.2 Tf 0.200 0.240 0.300 rg 252.00 264.29 Td (Multi-layer artificial neurons learning deep non-linear patterns.) Tj ET
+0.970 0.980 1.000 rg
+48.00 239.29 499.28 19.00 re f
+BT /F2 8.4 Tf 0.130 0.360 0.680 rg 54.00 245.29 Td (CNN \(ConvNet\)) Tj ET
+BT /F2 8.3 Tf 0.100 0.130 0.180 rg 155.00 245.29 Td (Images & Video) Tj ET
+BT /F1 8.2 Tf 0.200 0.240 0.300 rg 252.00 245.29 Td (Scans pixel grids for shapes \(Face ID, medical X-rays, self-driving\).) Tj ET
+1.000 1.000 1.000 rg
+48.00 220.29 499.28 19.00 re f
+BT /F2 8.4 Tf 0.130 0.360 0.680 rg 54.00 226.29 Td (LSTM / RNN) Tj ET
+BT /F2 8.3 Tf 0.100 0.130 0.180 rg 155.00 226.29 Td (Time-Series / Audio) Tj ET
+BT /F1 8.2 Tf 0.200 0.240 0.300 rg 252.00 226.29 Td (Has 'memory' for sequential data \(stock prices, heartbeats, speech\).) Tj ET
+0.970 0.980 1.000 rg
+48.00 201.29 499.28 19.00 re f
+BT /F2 8.4 Tf 0.130 0.360 0.680 rg 54.00 207.29 Td (BERT / Transformer) Tj ET
+BT /F2 8.3 Tf 0.100 0.130 0.180 rg 155.00 207.29 Td (Text & Language) Tj ET
+BT /F1 8.2 Tf 0.200 0.240 0.300 rg 252.00 207.29 Td (Understands word context & grammar \(ChatGPT, search, translation\).) Tj ET
+1.000 1.000 1.000 rg
+48.00 182.29 499.28 19.00 re f
+BT /F2 8.4 Tf 0.130 0.360 0.680 rg 54.00 188.29 Td (Isolation Forest) Tj ET
+BT /F2 8.3 Tf 0.100 0.130 0.180 rg 155.00 188.29 Td (Unlabeled Outliers) Tj ET
+BT /F1 8.2 Tf 0.200 0.240 0.300 rg 252.00 188.29 Td (Spots strange anomalies that deviate from normal baseline traffic.) Tj ET
+0.940 0.960 1.000 rg
+0.680 0.780 0.940 RG
+0.80 w
+48.00 104.29 499.28 68.00 re B
+0.130 0.360 0.680 rg
+60.00 149.29 260.00 15.00 re f
+BT /F2 7.8 Tf 1.000 1.000 1.000 rg 68.00 154.09 Td (WHY OUR PROJECT USES A 5-MODEL ENSEMBLE) Tj ET
+BT /F1 8.5 Tf 0.100 0.130 0.180 rg 60.00 137.29 Td (Х Network logs are structured tabular data -> We use Random Forest \(Binary + Multi\) & Deep MLP Neural Nets.) Tj ET
+BT /F1 8.5 Tf 0.100 0.130 0.180 rg 60.00 122.29 Td (Х Hackers also invent brand-new attacks -> We added Isolation Forest to catch unseen zero-day anomalies!) Tj ET
+0.840 0.860 0.900 RG
+0.60 w
+36.00 37.89 m 559.28 37.89 l S
+BT /F1 8.0 Tf 0.450 0.490 0.550 rg 36.00 23.89 Td (AI / Machine Learning Model Building Guide  Х  Dataset -> Preprocessing -> Model -> Training -> Evaluation) Tj ET
+BT /F2 8.0 Tf 0.300 0.350 0.420 rg 507.28 23.89 Td (Page 2 of 3) Tj ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 5 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R /F4 4 0 R >> >> /Contents 8 0 R >>
+endobj
+10 0 obj
+<< /Length 7750 >>
+stream
+0.070 0.160 0.290 rg
+0.00 789.89 595.28 52.00 re f
+BT /F2 14.5 Tf 1.000 1.000 1.000 rg 36.00 809.89 Td (Steps 4 & 5: Training the Model & Evaluating Its Real-World Accuracy) Tj ET
+1.000 1.000 1.000 rg
+0.380 0.220 0.620 RG
+1.20 w
+36.00 525.89 523.28 248.00 re B
+0.380 0.220 0.620 rg
+36.00 743.89 523.28 30.00 re f
+BT /F2 11.5 Tf 1.000 1.000 1.000 rg 48.00 753.89 Td (STEP 4: TRAINING  Ч  Teach the Model Using Your Dataset) Tj ET
+BT /F2 10.2 Tf 0.100 0.130 0.180 rg 48.00 728.89 Td (What Happens During Model Training?) Tj ET
+BT /F1 9.1 Tf 0.200 0.240 0.300 rg 48.00 714.89 Td (Training is like a student studying thousands of flashcards with questions on the front) Tj ET
+BT /F1 9.1 Tf 0.200 0.240 0.300 rg 48.00 702.29 Td (\(X_train\) and answers on the back \(y_train\). The algorithm repeats 3 steps over and over) Tj ET
+BT /F1 9.1 Tf 0.200 0.240 0.300 rg 48.00 689.69 Td (until it masters the patterns:) Tj ET
+0.960 0.940 0.990 rg
+0.760 0.680 0.900 RG
+0.70 w
+48.00 617.09 159.76 54.00 re B
+BT /F2 8.5 Tf 0.380 0.220 0.620 rg 56.00 656.09 Td (1. MAKE A GUESS) Tj ET
+BT /F1 8.0 Tf 0.200 0.240 0.300 rg 56.00 643.09 Td (Forward Pass: The model) Tj ET
+BT /F1 8.0 Tf 0.200 0.240 0.300 rg 56.00 632.59 Td (looks at the input features) Tj ET
+BT /F1 8.0 Tf 0.200 0.240 0.300 rg 56.00 622.09 Td (and predicts an answer.) Tj ET
+0.960 0.940 0.990 rg
+0.760 0.680 0.900 RG
+0.70 w
+217.76 617.09 159.76 54.00 re B
+BT /F2 8.5 Tf 0.380 0.220 0.620 rg 225.76 656.09 Td (2. MEASURE MISTAKE) Tj ET
+BT /F1 8.0 Tf 0.200 0.240 0.300 rg 225.76 643.09 Td (Loss Function: Compares its) Tj ET
+BT /F1 8.0 Tf 0.200 0.240 0.300 rg 225.76 632.59 Td (guess to the true label and) Tj ET
+BT /F1 8.0 Tf 0.200 0.240 0.300 rg 225.76 622.09 Td (calculates an error score.) Tj ET
+0.960 0.940 0.990 rg
+0.760 0.680 0.900 RG
+0.70 w
+387.52 617.09 159.76 54.00 re B
+BT /F2 8.5 Tf 0.380 0.220 0.620 rg 395.52 656.09 Td (3. ADJUST & IMPROVE) Tj ET
+BT /F1 8.0 Tf 0.200 0.240 0.300 rg 395.52 643.09 Td (Optimization: Updates) Tj ET
+BT /F1 8.0 Tf 0.200 0.240 0.300 rg 395.52 632.59 Td (internal weights/trees so) Tj ET
+BT /F1 8.0 Tf 0.200 0.240 0.300 rg 395.52 622.09 Td (the next guess is more) Tj ET
+BT /F1 8.0 Tf 0.200 0.240 0.300 rg 395.52 611.59 Td (accurate.) Tj ET
+0.960 0.940 0.990 rg
+0.760 0.680 0.900 RG
+48.00 543.09 499.28 62.00 re B
+0.380 0.220 0.620 rg
+60.00 582.09 265.00 15.00 re f
+BT /F2 7.8 Tf 1.000 1.000 1.000 rg 68.00 586.89 Td (IN OUR CYBERSECURITY PROJECT \(src/model_training.py\)) Tj ET
+BT /F1 8.8 Tf 0.100 0.130 0.180 rg 60.00 571.09 Td (Х Trains on 125,973 network connections: rf.fit\(X_train, y_train\) & mlp.fit\(X_train, y_train\).) Tj ET
+BT /F1 8.8 Tf 0.100 0.130 0.180 rg 60.00 556.09 Td (Х Saves the learned brains to disk \(models/saved/rf_binary.pkl, nn_binary.pkl, isolation_forest.pkl\).) Tj ET
+1.000 1.000 1.000 rg
+0.760 0.410 0.060 RG
+1.20 w
+36.00 245.89 523.28 266.00 re B
+0.760 0.410 0.060 rg
+36.00 481.89 523.28 30.00 re f
+BT /F2 11.5 Tf 1.000 1.000 1.000 rg 48.00 491.89 Td (STEP 5: TESTING / EVALUATION  Ч  Check Accuracy on Unseen Test Data) Tj ET
+BT /F2 10.2 Tf 0.100 0.130 0.180 rg 48.00 466.89 Td (Why Must We Test on UNSEEN Data \(X_test\)?) Tj ET
+BT /F1 9.0 Tf 0.200 0.240 0.300 rg 48.00 452.89 Td (If a teacher gives students the exact same homework questions on the final exam, a student) Tj ET
+BT /F1 9.0 Tf 0.200 0.240 0.300 rg 48.00 440.49 Td (might score 100% just by memorizing! To prove our model truly learned, we test it on unseen) Tj ET
+BT /F1 9.0 Tf 0.200 0.240 0.300 rg 48.00 428.09 Td (Test Data \(X_test\) and compare its predictions against the real answers \(y_test\).) Tj ET
+BT /F2 9.8 Tf 0.100 0.130 0.180 rg 48.00 409.69 Td (Key Evaluation Metrics Every AI Builder Checks:) Tj ET
+BT /F2 8.8 Tf 0.760 0.410 0.060 rg 56.00 395.69 Td (Х Accuracy:) Tj ET
+BT /F1 8.6 Tf 0.200 0.240 0.300 rg 128.00 395.69 Td (Percentage of total predictions the model got right overall \(Correct / Total\).) Tj ET
+BT /F2 8.8 Tf 0.760 0.410 0.060 rg 56.00 381.69 Td (Х Precision:) Tj ET
+BT /F1 8.6 Tf 0.200 0.240 0.300 rg 128.00 381.69 Td (When the model raises an alert \('Attack!'\), how often is it truly an attack? \(Low False Alarms\).) Tj ET
+BT /F2 8.8 Tf 0.760 0.410 0.060 rg 56.00 367.69 Td (Х Recall:) Tj ET
+BT /F1 8.6 Tf 0.200 0.240 0.300 rg 128.00 367.69 Td (Out of all actual attacks in the dataset, what percentage did the model successfully catch?) Tj ET
+BT /F2 8.8 Tf 0.760 0.410 0.060 rg 56.00 353.69 Td (Х F1-Score:) Tj ET
+BT /F1 8.6 Tf 0.200 0.240 0.300 rg 128.00 353.69 Td (The balanced average \(harmonic mean\) of Precision and Recall Ч crucial when classes are uneven.) Tj ET
+1.000 0.970 0.920 rg
+0.920 0.760 0.520 RG
+48.00 271.69 499.28 62.00 re B
+0.760 0.410 0.060 rg
+60.00 310.69 295.00 15.00 re f
+BT /F2 7.8 Tf 1.000 1.000 1.000 rg 68.00 315.49 Td (OUR PROJECT'S FINAL EXAM SCORES \(22,544 Unseen Test Records\)) Tj ET
+BT /F2 8.4 Tf 0.100 0.130 0.180 rg 60.00 299.69 Td (Х Deep Neural Network \(Binary\):  80.74% Accuracy  |  85.32% Precision  |  80.64% F1  |  2.78% False Positive Rate) Tj ET
+BT /F1 8.4 Tf 0.200 0.240 0.300 rg 60.00 284.69 Td (Х Random Forest \(0.9723 AUC-ROC\)  &  Isolation Forest \(98.53% Precision, 1.20% False Positive Rate on Zero-Days\)) Tj ET
+0.960 0.970 0.990 rg
+0.070 0.160 0.290 RG
+1.00 w
+36.00 53.89 523.28 178.00 re B
+0.070 0.160 0.290 rg
+36.00 206.89 523.28 25.00 re f
+BT /F2 10.2 Tf 1.000 1.000 1.000 rg 48.00 214.89 Td (QUICK REVISION SUMMARY: The 5 Mandatory Steps at a Glance) Tj ET
+BT /F2 8.6 Tf 0.070 0.160 0.290 rg 48.00 195.89 Td (Step) Tj ET
+BT /F2 8.6 Tf 0.070 0.160 0.290 rg 136.00 195.89 Td (Simple Analogy) Tj ET
+BT /F2 8.6 Tf 0.070 0.160 0.290 rg 248.00 195.89 Td (What You Do) Tj ET
+BT /F2 8.6 Tf 0.070 0.160 0.290 rg 412.00 195.89 Td (Python / Project File) Tj ET
+0.830 0.860 0.910 RG
+46.00 189.89 m 549.28 189.89 l S
+BT /F2 8.5 Tf 0.100 0.130 0.180 rg 48.00 175.89 Td (1. Dataset) Tj ET
+BT /F3 8.4 Tf 0.200 0.240 0.300 rg 136.00 175.89 Td (Buying ingredients / Textbook) Tj ET
+BT /F1 8.4 Tf 0.200 0.240 0.300 rg 248.00 175.89 Td (Collect raw records & labels) Tj ET
+BT /F4 7.8 Tf 0.130 0.360 0.680 rg 412.00 175.89 Td (src/data_ingestion.py) Tj ET
+BT /F2 8.5 Tf 0.100 0.130 0.180 rg 48.00 152.89 Td (2. Preprocessing) Tj ET
+BT /F3 8.4 Tf 0.200 0.240 0.300 rg 136.00 152.89 Td (Washing & chopping veggies) Tj ET
+BT /F1 8.4 Tf 0.200 0.240 0.300 rg 248.00 152.89 Td (Remove nulls, encode, scale) Tj ET
+BT /F4 7.8 Tf 0.130 0.360 0.680 rg 412.00 152.89 Td (src/feature_engineering.py) Tj ET
+BT /F2 8.5 Tf 0.100 0.130 0.180 rg 48.00 129.89 Td (3. Model Selection) Tj ET
+BT /F3 8.4 Tf 0.200 0.240 0.300 rg 136.00 129.89 Td (Choosing the right recipe) Tj ET
+BT /F1 8.4 Tf 0.200 0.240 0.300 rg 248.00 129.89 Td (Pick RF, DNN, CNN, LSTM, BERT) Tj ET
+BT /F4 7.8 Tf 0.130 0.360 0.680 rg 412.00 129.89 Td (src/model_training.py) Tj ET
+BT /F2 8.5 Tf 0.100 0.130 0.180 rg 48.00 106.89 Td (4. Training) Tj ET
+BT /F3 8.4 Tf 0.200 0.240 0.300 rg 136.00 106.89 Td (Chef practicing the dish) Tj ET
+BT /F1 8.4 Tf 0.200 0.240 0.300 rg 248.00 106.89 Td (Run model.fit\(X_train, y_train\)) Tj ET
+BT /F4 7.8 Tf 0.130 0.360 0.680 rg 412.00 106.89 Td (src/model_training.py) Tj ET
+BT /F2 8.5 Tf 0.100 0.130 0.180 rg 48.00 83.89 Td (5. Evaluation) Tj ET
+BT /F3 8.4 Tf 0.200 0.240 0.300 rg 136.00 83.89 Td (Taste test / Final Exam) Tj ET
+BT /F1 8.4 Tf 0.200 0.240 0.300 rg 248.00 83.89 Td (Check Accuracy & F1 on X_test) Tj ET
+BT /F4 7.8 Tf 0.130 0.360 0.680 rg 412.00 83.89 Td (tests/test_system.py) Tj ET
+0.840 0.860 0.900 RG
+0.60 w
+36.00 37.89 m 559.28 37.89 l S
+BT /F1 8.0 Tf 0.450 0.490 0.550 rg 36.00 23.89 Td (AI / Machine Learning Model Building Guide  Х  Dataset -> Preprocessing -> Model -> Training -> Evaluation) Tj ET
+BT /F2 8.0 Tf 0.300 0.350 0.420 rg 507.28 23.89 Td (Page 3 of 3) Tj ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 5 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R /F4 4 0 R >> >> /Contents 10 0 R >>
+endobj
+12 0 obj
+<< /Type /Catalog /Pages 5 0 R >>
+endobj
+xref
+0 13
+0000000000 65535 f 
+0000000015 00000 n 
+0000000112 00000 n 
+0000000214 00000 n 
+0000000319 00000 n 
+0000000419 00000 n 
+0000000489 00000 n 
+0000007930 00000 n 
+0000008092 00000 n 
+0000015152 00000 n 
+0000015314 00000 n 
+0000023117 00000 n 
+0000023281 00000 n 
+trailer
+<< /Size 13 /Root 12 0 R >>
+startxref
+23331
+%%EOF

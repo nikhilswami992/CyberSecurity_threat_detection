@@ -1,0 +1,18 @@
+# AI-Based Cybersecurity Threat Detection
+# Core Dependencies
+
+# Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Machine Learning
+scikit-learn>=1.3.0
+tensorflow>=2.13.0
+
+# API
+flask>=3.0.0
+flask-cors>=4.0.0
+
+# Utilities
+joblib>=1.3.0
+requests>=2.31.0

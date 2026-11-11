@@ -1,0 +1,434 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Pages /Kids [7 0 R 9 0 R 11 0 R 13 0 R] /Count 4 >>
+endobj
+6 0 obj
+<< /Length 7202 >>
+stream
+0.070 0.160 0.290 rg
+0.00 747.89 595.28 94.00 re f
+0.150 0.340 0.580 rg
+36.00 809.89 250.00 17.00 re f
+BT /F2 7.8 Tf 0.920 0.960 1.000 rg 44.00 815.33 Td (VIVA & PROJECT DEFENSE QUESTION BANK) Tj ET
+BT /F2 20.0 Tf 1.000 1.000 1.000 rg 36.00 791.89 Td (12 Dataset & Model Questions ó Easy Answers) Tj ET
+BT /F1 9.6 Tf 0.800 0.880 0.970 rg 36.00 771.89 Td (Project: AI-Based Cybersecurity Threat Detection  ï  Dataset: NSL-KDD \(148,517 Network Connections\)) Tj ET
+1.000 1.000 1.000 rg
+0.110 0.480 0.260 RG
+1.10 w
+36.00 515.89 523.28 220.00 re B
+0.110 0.480 0.260 rg
+36.00 709.89 523.28 26.00 re f
+BT /F2 10.5 Tf 1.000 1.000 1.000 rg 46.00 718.39 Td (Q1.  What dataset are you using for your project? Where did you get it from?) Tj ET
+0.930 0.980 0.950 rg
+46.00 669.89 503.28 33.00 re f
+BT /F2 8.5 Tf 0.110 0.480 0.260 rg 54.00 691.39 Td (Easy Answer \(In Simple Words\):) Tj ET
+BT /F1 8.5 Tf 0.120 0.150 0.200 rg 54.00 679.89 Td (We are using the NSL-KDD Dataset \(Network Security Laboratory - Knowledge Discovery in) Tj ET
+BT /F1 8.5 Tf 0.120 0.150 0.200 rg 54.00 669.39 Td (Databases\), the gold-standard benchmark for network intrusion detection.) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 658.89 Td (ï Where We Got It From:) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 647.39 Td (Created and published by the Canadian Institute for Cybersecurity \(CIC\) at the University of) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 636.59 Td (New Brunswick \(UNB\) as an improved, cleaned version of the original DARPA / KDD Cup '99) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 625.79 Td (dataset.) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 612.49 Td (ï How Our Project Downloads It:) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 600.99 Td (Our ingestion script \(src/data_ingestion.py\) automatically downloads KDDTrain+.txt and) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 590.19 Td (KDDTest+.txt from the public NSL-KDD benchmark repository and stores them in data/raw/.) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 576.89 Td (ï What Each Row Represents:) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 565.39 Td (Each row represents one network connection \(TCP, UDP, or ICMP flow\) labeled as legitimate) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 554.59 Td (\('normal'\) or one of 39 cyber-attack subtypes grouped into 4 major attack families.) Tj ET
+0.880 0.900 0.940 RG
+0.50 w
+48.00 535.89 m 547.28 535.89 l S
+BT /F4 7.6 Tf 0.110 0.480 0.260 rg 48.00 523.89 Td (Project File: src/data_ingestion.py  |  Files: data/raw/KDDTrain+.txt & data/raw/KDDTest+.txt) Tj ET
+1.000 1.000 1.000 rg
+0.130 0.360 0.680 RG
+1.10 w
+36.00 285.89 523.28 220.00 re B
+0.130 0.360 0.680 rg
+36.00 479.89 523.28 26.00 re f
+BT /F2 10.5 Tf 1.000 1.000 1.000 rg 46.00 488.39 Td (Q2.  What is the size of your dataset? How many rows / images / samples?) Tj ET
+0.930 0.960 1.000 rg
+46.00 439.89 503.28 33.00 re f
+BT /F2 8.5 Tf 0.130 0.360 0.680 rg 54.00 461.39 Td (Easy Answer \(In Simple Words\):) Tj ET
+BT /F1 8.5 Tf 0.120 0.150 0.200 rg 54.00 449.89 Td (Our dataset is a structured tabular dataset \(not images\) containing a total of 148,517 network) Tj ET
+BT /F1 8.5 Tf 0.120 0.150 0.200 rg 54.00 439.39 Td (connection samples \(rows\) and 43 raw columns \(~22.5 MB raw text\).) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 428.89 Td (ï Training Set Size \(KDDTrain+.txt\):) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 417.39 Td (125,973 rows \(84.8% of total data\) ó consists of 67,343 Normal connections and 58,630 Attack) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 406.59 Td (connections.) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 393.29 Td (ï Testing Set Size \(KDDTest+.txt\):) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 381.79 Td (22,544 rows \(15.2% of total data\) ó consists of 9,711 Normal connections and 12,833 Attack) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 370.99 Td (connections \(including 17 brand-new zero-day attack types not present in training\).) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 357.69 Td (ï Columns / Dimensions:) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 346.19 Td (Each raw sample has 41 network traffic features + 1 attack label + 1 difficulty score = 43 raw) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 335.39 Td (columns. After feature engineering, each sample has 48 normalized numeric features.) Tj ET
+0.880 0.900 0.940 RG
+0.50 w
+48.00 305.89 m 547.28 305.89 l S
+BT /F4 7.6 Tf 0.130 0.360 0.680 rg 48.00 293.89 Td (Total Samples: 148,517 rows  |  Processed Matrix Shapes: X_train \(125973, 48\) & X_test \(22544, 48\)) Tj ET
+1.000 1.000 1.000 rg
+0.080 0.450 0.440 RG
+1.10 w
+36.00 49.89 523.28 226.00 re B
+0.080 0.450 0.440 rg
+36.00 249.89 523.28 26.00 re f
+BT /F2 10.5 Tf 1.000 1.000 1.000 rg 46.00 258.39 Td (Q3.  What are the features / attributes in your dataset?) Tj ET
+0.920 0.970 0.970 rg
+46.00 209.89 503.28 33.00 re f
+BT /F2 8.5 Tf 0.080 0.450 0.440 rg 54.00 231.39 Td (Easy Answer \(In Simple Words\):) Tj ET
+BT /F1 8.5 Tf 0.120 0.150 0.200 rg 54.00 219.89 Td (Each connection has 41 raw network features \(3 categorical text + 38 numeric\) plus 7 new) Tj ET
+BT /F1 8.5 Tf 0.120 0.150 0.200 rg 54.00 209.39 Td (behavioral features we engineered, making 48 total input features.) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 198.89 Td (ï 1. Basic Connection Features \(Features 1-9\):) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 187.39 Td (Packet header details: duration, protocol_type \(tcp/udp/icmp\), service \(http, ssh, dns,) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 176.59 Td (ftp...\), flag \(SF, S0, REJ\), src_bytes \(bytes sent\), dst_bytes \(bytes received\), land,) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 165.79 Td (wrong_fragment, urgent.) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 152.49 Td (ï 2. Content & Host Intrusion Clues \(Features 10-22\):) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 140.99 Td (Inside-payload clues: hot indicators, num_failed_logins, logged_in, num_compromised,) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 130.19 Td (root_shell \(root access gained!\), su_attempted, num_root, num_file_creations, is_guest_login.) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 116.89 Td (ï 3. Traffic Window Features \(23-41\) + 7 Engineered Features:) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 105.39 Td (2-second window stats \(count, srv_count, serror_rate, rerror_rate, same_srv_rate\) +) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 94.59 Td (255-connection host stats + our 7 derived features \(bytes_ratio, traffic_intensity,) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 83.79 Td (srv_diversity, total_error_rate, suspicious_activity\).) Tj ET
+0.880 0.900 0.940 RG
+0.50 w
+48.00 69.89 m 547.28 69.89 l S
+BT /F4 7.6 Tf 0.080 0.450 0.440 rg 48.00 57.89 Td (Target Labels: Binary \(0=Normal, 1=Attack\) & 5-Class \(Normal, DoS, Probe, R2L, U2R\)) Tj ET
+0.840 0.860 0.900 RG
+0.60 w
+36.00 37.89 m 559.28 37.89 l S
+BT /F1 8.0 Tf 0.450 0.490 0.550 rg 36.00 23.89 Td (AI-Based Cybersecurity Threat Detection  ï  Dataset & Model Viva Questions & Answers \(Q1 - Q12\)) Tj ET
+BT /F2 8.0 Tf 0.300 0.350 0.420 rg 507.28 23.89 Td (Page 1 of 4) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 5 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R /F4 4 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Length 7079 >>
+stream
+0.070 0.160 0.290 rg
+0.00 789.89 595.28 52.00 re f
+BT /F2 14.5 Tf 1.000 1.000 1.000 rg 36.00 809.89 Td (Questions 4, 5 & 6: Data Source, Class Imbalance & Preprocessing) Tj ET
+1.000 1.000 1.000 rg
+0.380 0.220 0.620 RG
+1.10 w
+36.00 551.89 523.28 224.00 re B
+0.380 0.220 0.620 rg
+36.00 749.89 523.28 26.00 re f
+BT /F2 10.5 Tf 1.000 1.000 1.000 rg 46.00 758.39 Td (Q4.  Is your dataset public or did you collect it yourself?) Tj ET
+0.950 0.930 0.990 rg
+46.00 709.89 503.28 33.00 re f
+BT /F2 8.5 Tf 0.380 0.220 0.620 rg 54.00 731.39 Td (Easy Answer \(In Simple Words\):) Tj ET
+BT /F1 8.5 Tf 0.120 0.150 0.200 rg 54.00 719.89 Td (NSL-KDD is a publicly available, peer-reviewed academic benchmark dataset; additionally, our) Tj ET
+BT /F1 8.5 Tf 0.120 0.150 0.200 rg 54.00 709.39 Td (project generates live custom packet telemetry in our Threat Sandbox.) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 698.89 Td (ï Why We Used a Public Benchmark Instead of Self-Collection:) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 687.39 Td (Collecting 148,000+ real cyber attacks \(like Rootkits, SYN Floods, and Buffer Overflows\) on a) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 676.59 Td (private network takes months and risks damaging live infrastructure.) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 663.29 Td (ï Scientific Reproducibility:) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 651.79 Td (Using the public NSL-KDD benchmark allows us to compare our model's accuracy \(80.74% DNN,) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 640.99 Td (0.9723 AUC-ROC\) fairly against thousands of published IEEE and ACM research papers.) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 627.69 Td (ï Self-Generated Live Sandbox Data:) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 616.19 Td (On top of the public dataset, we built an interactive Threat Sandbox \(/api/predict\) and Real-) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 605.39 Td (Time Traffic Simulator \(src/realtime_simulator.py\) so users can inject their own custom) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 594.59 Td (packets!) Tj ET
+0.880 0.900 0.940 RG
+0.50 w
+48.00 571.89 m 547.28 571.89 l S
+BT /F4 7.6 Tf 0.380 0.220 0.620 rg 48.00 559.89 Td (Source Type: Public Benchmark \(NSL-KDD\) + Custom Live Packet Injection via REST API) Tj ET
+1.000 1.000 1.000 rg
+0.680 0.180 0.240 RG
+1.10 w
+36.00 301.89 523.28 236.00 re B
+0.680 0.180 0.240 rg
+36.00 511.89 523.28 26.00 re f
+BT /F2 10.5 Tf 1.000 1.000 1.000 rg 46.00 520.39 Td (Q5.  Is your dataset balanced or imbalanced? How did you handle it?) Tj ET
+0.990 0.930 0.940 rg
+46.00 471.89 503.28 33.00 re f
+BT /F2 8.5 Tf 0.680 0.180 0.240 rg 54.00 493.39 Td (Easy Answer \(In Simple Words\):) Tj ET
+BT /F1 8.5 Tf 0.120 0.150 0.200 rg 54.00 481.89 Td (For Binary classification it is well-balanced \(53.5% Normal vs 46.5% Attack\), but for 5-Class) Tj ET
+BT /F1 8.5 Tf 0.120 0.150 0.200 rg 54.00 471.39 Td (classification it is heavily imbalanced \(U2R is only 0.04% of rows\).) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 460.89 Td (ï Exact Class Distribution in Training Set \(125,973 rows\):) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 449.39 Td (Normal: 67,343 \(53.46%\)  |  DoS: 45,927 \(36.46%\)  |  Probe: 11,656 \(9.25%\)  |  R2L: 995) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 438.59 Td (\(0.79%\)  |  U2R: 52 \(0.04%\). Notice how rare R2L and U2R attacks are!) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 425.29 Td (ï How We Handled It ó 1. Balanced Class Weighting:) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 413.79 Td (In src/model_training.py, we set class_weight='balanced' inside RandomForestClassifier. This) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 402.99 Td (penalizes mistakes on rare classes \(U2R/R2L\) up to 1,000x more heavily than majority classes.) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 389.69 Td (ï How We Handled It ó 2. Unsupervised Isolation Forest + Composite Features:) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 378.19 Td (We trained an Isolation Forest ONLY on Normal traffic so rare attacks are caught as) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 367.39 Td (statistical outliers regardless of sample size, and created 'suspicious_activity' to amplify) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 356.59 Td (R2L/U2R signals.) Tj ET
+0.880 0.900 0.940 RG
+0.50 w
+48.00 321.89 m 547.28 321.89 l S
+BT /F4 7.6 Tf 0.680 0.180 0.240 rg 48.00 309.89 Td (Evaluation Strategy: We use Weighted F1-Score, Precision, Recall & FPR instead of raw accuracy alone.) Tj ET
+1.000 1.000 1.000 rg
+0.080 0.450 0.440 RG
+1.10 w
+36.00 51.89 523.28 236.00 re B
+0.080 0.450 0.440 rg
+36.00 261.89 523.28 26.00 re f
+BT /F2 10.5 Tf 1.000 1.000 1.000 rg 46.00 270.39 Td (Q6.  What preprocessing did you do? \(cleaning, null values, normalization\)) Tj ET
+0.920 0.970 0.970 rg
+46.00 221.89 503.28 33.00 re f
+BT /F2 8.5 Tf 0.080 0.450 0.440 rg 54.00 243.39 Td (Easy Answer \(In Simple Words\):) Tj ET
+BT /F1 8.5 Tf 0.120 0.150 0.200 rg 54.00 231.89 Td (We performed 4 preprocessing stages in src/feature_engineering.py: cleaning/null-handling,) Tj ET
+BT /F1 8.5 Tf 0.120 0.150 0.200 rg 54.00 221.39 Td (categorical encoding, creating 7 derived features, and MinMax normalization.) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 210.89 Td (ï 1. Cleaning & Preventing Null / Division-by-Zero Errors:) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 199.39 Td (Verified zero missing values in raw files and added Laplace smoothing \(+1 in denominators like) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 188.59 Td (src_bytes / \(dst_bytes + 1\)\) so zero-byte packets never produce NaN or infinity errors.) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 175.29 Td (ï 2. Categorical Label Encoding \(Text -> Numbers\):) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 163.79 Td (Used Scikit-Learn LabelEncoder to convert the 3 text columns ó protocol_type) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 152.99 Td (\('tcp','udp','icmp'\), service \(70 services\), and flag \(11 TCP states\) ó into numeric columns.) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 139.69 Td (ï 3. Feature Engineering \(+7 Clues\) & MinMax Normalization [0.0 to 1.0]:) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 128.19 Td (Engineered 7 ratios \(bytes_ratio, traffic_intensity, srv_diversity, total_error_rate, etc.\)) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 117.39 Td (and applied MinMaxScaler\(\) fitted ONLY on training data so large byte counts don't dominate) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 106.59 Td (small rates.) Tj ET
+0.880 0.900 0.940 RG
+0.50 w
+48.00 71.89 m 547.28 71.89 l S
+BT /F4 7.6 Tf 0.080 0.450 0.440 rg 48.00 59.89 Td (Saved Transformers: models/saved/scaler.pkl, encoders.pkl & category_encoder.pkl) Tj ET
+0.840 0.860 0.900 RG
+0.60 w
+36.00 37.89 m 559.28 37.89 l S
+BT /F1 8.0 Tf 0.450 0.490 0.550 rg 36.00 23.89 Td (AI-Based Cybersecurity Threat Detection  ï  Dataset & Model Viva Questions & Answers \(Q1 - Q12\)) Tj ET
+BT /F2 8.0 Tf 0.300 0.350 0.420 rg 507.28 23.89 Td (Page 2 of 4) Tj ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 5 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R /F4 4 0 R >> >> /Contents 8 0 R >>
+endobj
+10 0 obj
+<< /Length 7040 >>
+stream
+0.070 0.160 0.290 rg
+0.00 789.89 595.28 52.00 re f
+BT /F2 14.5 Tf 1.000 1.000 1.000 rg 36.00 809.89 Td (Questions 7, 8 & 9: Train/Test Split, Ethics/Privacy & Dataset Choice) Tj ET
+1.000 1.000 1.000 rg
+0.130 0.360 0.680 RG
+1.10 w
+36.00 547.89 523.28 228.00 re B
+0.130 0.360 0.680 rg
+36.00 749.89 523.28 26.00 re f
+BT /F2 10.5 Tf 1.000 1.000 1.000 rg 46.00 758.39 Td (Q7.  How did you split your dataset for training and testing?) Tj ET
+0.930 0.960 1.000 rg
+46.00 709.89 503.28 33.00 re f
+BT /F2 8.5 Tf 0.130 0.360 0.680 rg 54.00 731.39 Td (Easy Answer \(In Simple Words\):) Tj ET
+BT /F1 8.5 Tf 0.120 0.150 0.200 rg 54.00 719.89 Td (We used the official benchmark split \(~85% Training = 125,973 rows, ~15% Testing = 22,544) Tj ET
+BT /F1 8.5 Tf 0.120 0.150 0.200 rg 54.00 709.39 Td (rows\), where the test set includes 17 unseen zero-day attack types.) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 698.89 Td (ï Why We Used the Official Split Instead of a Random 80/20 Split:) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 687.39 Td (A random train_test_split puts the exact same attack types in both train and test, giving an) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 676.59 Td (unrealistic 99.5% score. The official KDDTest+ split holds out 17 novel attack types ONLY in) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 665.79 Td (the test set!) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 652.49 Td (ï Validation Split During Deep Neural Network Training:) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 640.99 Td (Inside the 125,973 training records, our Deep Neural Network reserves an additional 15%) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 630.19 Td (validation split \(validation_split=0.15\) for EarlyStopping and learning-rate tuning.) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 616.89 Td (ï Strict Zero Data-Leakage Policy:) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 605.39 Td (Our MinMaxScaler and LabelEncoders are fit\(\) strictly on KDDTrain+ and only transform\(\) is) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 594.59 Td (called on KDDTest+, ensuring zero test information leaks into training.) Tj ET
+0.880 0.900 0.940 RG
+0.50 w
+48.00 567.89 m 547.28 567.89 l S
+BT /F4 7.6 Tf 0.130 0.360 0.680 rg 48.00 555.89 Td (Split Breakdown: 125,973 Train \(with 15% internal val split for DNN\)   vs  22,544 Unseen Test) Tj ET
+1.000 1.000 1.000 rg
+0.110 0.480 0.260 RG
+1.10 w
+36.00 305.89 523.28 228.00 re B
+0.110 0.480 0.260 rg
+36.00 507.89 523.28 26.00 re f
+BT /F2 10.5 Tf 1.000 1.000 1.000 rg 46.00 516.39 Td (Q8.  Are there any ethical / privacy issues with your dataset?) Tj ET
+0.930 0.980 0.950 rg
+46.00 467.89 503.28 33.00 re f
+BT /F2 8.5 Tf 0.110 0.480 0.260 rg 54.00 489.39 Td (Easy Answer \(In Simple Words\):) Tj ET
+BT /F1 8.5 Tf 0.120 0.150 0.200 rg 54.00 477.89 Td (The dataset is completely anonymized \(no real personal IPs, names, or payload text\), and we) Tj ET
+BT /F1 8.5 Tf 0.120 0.150 0.200 rg 54.00 467.39 Td (added strict ethical guardrails for automated IP blocking.) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 456.89 Td (ï 1. Complete User Privacy \(No PII or Packet Payloads\):) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 445.39 Td (NSL-KDD contains only statistical flow metadata \(byte counts, durations, flags\). It does NOT) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 434.59 Td (contain private user emails, passwords, web URLs, or personally identifiable IP addresses.) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 421.29 Td (ï 2. Ethical Risk of False Positives in Automated Blocking:) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 409.79 Td (In real-world cybersecurity, if an AI falsely flags a normal user \(False Positive\) and auto-) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 398.99 Td (blocks their IP, it can disrupt hospital, banking, or emergency traffic.) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 385.69 Td (ï 3. How Our System Mitigates Ethical & Security Risks:) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 374.19 Td (We only auto-quarantine 'Critical' high-confidence threats, provide a 1-click Unblock button) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 363.39 Td (in the dashboard, and enforce read-only SQL guardrails \(src/siem_db.py\) to prevent data) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 352.59 Td (tampering.) Tj ET
+0.880 0.900 0.940 RG
+0.50 w
+48.00 325.89 m 547.28 325.89 l S
+BT /F4 7.6 Tf 0.110 0.480 0.260 rg 48.00 313.89 Td (Privacy Status: 100% Anonymized Flow Metadata \(GDPR-safe\) + Human-in-the-Loop Unblock Control) Tj ET
+1.000 1.000 1.000 rg
+0.380 0.220 0.620 RG
+1.10 w
+36.00 53.89 523.28 238.00 re B
+0.380 0.220 0.620 rg
+36.00 265.89 523.28 26.00 re f
+BT /F2 10.5 Tf 1.000 1.000 1.000 rg 46.00 274.39 Td (Q9.  Why did you choose this particular dataset and not others?) Tj ET
+0.950 0.930 0.990 rg
+46.00 225.89 503.28 33.00 re f
+BT /F2 8.5 Tf 0.380 0.220 0.620 rg 54.00 247.39 Td (Easy Answer \(In Simple Words\):) Tj ET
+BT /F1 8.5 Tf 0.120 0.150 0.200 rg 54.00 235.89 Td (We chose NSL-KDD because it fixes the duplicate-record flaws of KDD'99, covers all 4 core) Tj ET
+BT /F1 8.5 Tf 0.120 0.150 0.200 rg 54.00 225.39 Td (attack families, tests zero-day generalization, and trains fast on standard hardware.) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 214.89 Td (ï 1. Superior to Original KDD Cup '99:) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 203.39 Td (The older KDD'99 dataset had 78% duplicate records, which caused models to memorize frequent) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 192.59 Td (rows. NSL-KDD removed all duplicates so models learn genuine network behavior.) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 179.29 Td (ï 2. Practical Size Compared to Multi-Gigabyte Captures \(CICIDS2017 / UNSW-NB15\):) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 167.79 Td (While datasets like CICIDS2017 are 10+ GB and require heavy GPU clusters, NSL-KDD \(~148k rows\)) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 156.99 Td (lets us train 5 diverse models in under 60 seconds and run real-time sub-millisecond) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 146.19 Td (inference.) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 132.89 Td (ï 3. Built-In Zero-Day Stress Test:) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 121.39 Td (Because KDDTest+ contains 17 attack subtypes missing from KDDTrain+, it is the best dataset to) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 110.59 Td (prove why combining Supervised Models + Unsupervised Isolation Forest is necessary.) Tj ET
+0.880 0.900 0.940 RG
+0.50 w
+48.00 73.89 m 547.28 73.89 l S
+BT /F4 7.6 Tf 0.380 0.220 0.620 rg 48.00 61.89 Td (Key Advantage: Clean, zero-duplicate benchmark with built-in zero-day attack evaluation.) Tj ET
+0.840 0.860 0.900 RG
+0.60 w
+36.00 37.89 m 559.28 37.89 l S
+BT /F1 8.0 Tf 0.450 0.490 0.550 rg 36.00 23.89 Td (AI-Based Cybersecurity Threat Detection  ï  Dataset & Model Viva Questions & Answers \(Q1 - Q12\)) Tj ET
+BT /F2 8.0 Tf 0.300 0.350 0.420 rg 507.28 23.89 Td (Page 3 of 4) Tj ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 5 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R /F4 4 0 R >> >> /Contents 10 0 R >>
+endobj
+12 0 obj
+<< /Length 7412 >>
+stream
+0.070 0.160 0.290 rg
+0.00 789.89 595.28 52.00 re f
+BT /F2 14.5 Tf 1.000 1.000 1.000 rg 36.00 809.89 Td (Questions 10, 11 & 12: Limitations, Future Data & Real-Time Deployment) Tj ET
+1.000 1.000 1.000 rg
+0.760 0.410 0.060 RG
+1.10 w
+36.00 581.89 523.28 196.00 re B
+0.760 0.410 0.060 rg
+36.00 751.89 523.28 26.00 re f
+BT /F2 10.5 Tf 1.000 1.000 1.000 rg 46.00 760.39 Td (Q10.  What are the limitations of your dataset?) Tj ET
+1.000 0.960 0.910 rg
+46.00 711.89 503.28 33.00 re f
+BT /F2 8.5 Tf 0.760 0.410 0.060 rg 54.00 733.39 Td (Easy Answer \(In Simple Words\):) Tj ET
+BT /F1 8.5 Tf 0.120 0.150 0.200 rg 54.00 721.89 Td (Its three main limitations are its age \(older network protocols\), extreme scarcity of U2R) Tj ET
+BT /F1 8.5 Tf 0.120 0.150 0.200 rg 54.00 711.39 Td (samples \(only 52 training rows\), and lack of modern encrypted TLS/cloud attack traffic.) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 700.89 Td (ï 1. Age of Traffic & Modern Encrypted Protocols:) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 689.39 Td (NSL-KDD reflects classic TCP/IP attacks \(like Telnet, FTP, and Smurf DoS\) and lacks modern) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 678.59 Td (cloud-native attacks, API exploits, or encrypted HTTPS/QUIC malware traffic.) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 665.29 Td (ï 2. Severe Scarcity of U2R & R2L Samples:) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 653.79 Td (With only 52 U2R \(User-to-Root\) samples out of 125,973 training rows, supervised models) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 642.99 Td (struggle to learn every possible privilege-escalation variation without heuristic help.) Tj ET
+0.880 0.900 0.940 RG
+0.50 w
+48.00 601.89 m 547.28 601.89 l S
+BT /F4 7.6 Tf 0.760 0.410 0.060 rg 48.00 589.89 Td (How We Compensated: Added Isolation Forest anomaly scoring + heuristic flag/root indicators.) Tj ET
+1.000 1.000 1.000 rg
+0.110 0.480 0.260 RG
+1.10 w
+36.00 375.89 523.28 196.00 re B
+0.110 0.480 0.260 rg
+36.00 545.89 523.28 26.00 re f
+BT /F2 10.5 Tf 1.000 1.000 1.000 rg 46.00 554.39 Td (Q11.  If you get more data in future, how will it improve your model?) Tj ET
+0.930 0.980 0.950 rg
+46.00 505.89 503.28 33.00 re f
+BT /F2 8.5 Tf 0.110 0.480 0.260 rg 54.00 527.39 Td (Easy Answer \(In Simple Words\):) Tj ET
+BT /F1 8.5 Tf 0.120 0.150 0.200 rg 54.00 515.89 Td (More dataóespecially rare U2R/R2L attacks and modern cloud/IoT trafficówill dramatically boost) Tj ET
+BT /F1 8.5 Tf 0.120 0.150 0.200 rg 54.00 505.39 Td (multi-class Recall, cut False Positives, and stop concept drift.) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 494.89 Td (ï 1. Higher Recall on Rare Attacks \(R2L & U2R\):) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 483.39 Td (Adding thousands of modern SSH brute-force \(R2L\) and container privilege-escalation \(U2R\)) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 472.59 Td (examples will raise multi-class accuracy from 76.74% toward 95%+.) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 459.29 Td (ï 2. Continuous Learning & Reduced False Alarms:) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 447.79 Td (Retraining our pipeline \(python3 run_pipeline.py --train\) on fresh company network baselines) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 436.99 Td (will teach the Isolation Forest new normal user habits, lowering False Positive Rates below) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 426.19 Td (0.5%.) Tj ET
+0.880 0.900 0.940 RG
+0.50 w
+48.00 395.89 m 547.28 395.89 l S
+BT /F4 7.6 Tf 0.110 0.480 0.260 rg 48.00 383.89 Td (Retraining Command: ./venv/bin/python run_pipeline.py --train  \(Rebuilds all 5 models automatically\)) Tj ET
+1.000 1.000 1.000 rg
+0.130 0.360 0.680 RG
+1.10 w
+36.00 159.89 523.28 206.00 re B
+0.130 0.360 0.680 rg
+36.00 339.89 523.28 26.00 re f
+BT /F2 10.5 Tf 1.000 1.000 1.000 rg 46.00 348.39 Td (Q12.  Can your model work on real-time / new data, not just this dataset?) Tj ET
+0.930 0.960 1.000 rg
+46.00 299.89 503.28 33.00 re f
+BT /F2 8.5 Tf 0.130 0.360 0.680 rg 54.00 321.39 Td (Easy Answer \(In Simple Words\):) Tj ET
+BT /F1 8.5 Tf 0.120 0.150 0.200 rg 54.00 309.89 Td (YES! Our model is already deployed behind a live Flask REST API \(/api/predict\) and SSE stream) Tj ET
+BT /F1 8.5 Tf 0.120 0.150 0.200 rg 54.00 299.39 Td (that classifies brand-new, custom network connections in under 15 milliseconds.) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 288.89 Td (ï 1. Raw Connection Inference Pipeline \(classify_raw_connection\):) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 277.39 Td (In src/threat_classifier.py, our classify_raw_connection\(\) method accepts any new JSON packet) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 266.59 Td (dictionary, fills missing defaults, computes the 7 derived features, encodes, scales, and) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 255.79 Td (predicts live!) Tj ET
+BT /F2 8.7 Tf 0.100 0.130 0.180 rg 48.00 242.49 Td (ï 2. Live Threat Sandbox, SIEM Database & Firewall Integration:) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 230.99 Td (Users can inject custom traffic via the Web Dashboard or curl POST /api/predict. Critical) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 220.19 Td (attacks are logged to SQLite \(siem_telemetry.db\) and exported to iptables, UFW, and pf.conf) Tj ET
+BT /F1 8.4 Tf 0.220 0.260 0.320 rg 58.00 209.39 Td (firewall rules.) Tj ET
+0.880 0.900 0.940 RG
+0.50 w
+48.00 179.89 m 547.28 179.89 l S
+BT /F4 7.6 Tf 0.130 0.360 0.680 rg 48.00 167.89 Td (Live Test: curl -X POST localhost:5050/api/predict -d '{"protocol_type":"tcp","flag":"S0","count":250}') Tj ET
+0.950 0.970 1.000 rg
+0.070 0.160 0.290 RG
+1.00 w
+36.00 49.89 523.28 98.00 re B
+0.070 0.160 0.290 rg
+36.00 125.89 523.28 22.00 re f
+BT /F2 9.2 Tf 1.000 1.000 1.000 rg 46.00 132.89 Td (FAST NUMBERS CHEAT-SHEET FOR YOUR VIVA / PRESENTATION) Tj ET
+BT /F2 8.0 Tf 0.070 0.160 0.290 rg 46.00 108.89 Td (ï Dataset Name:) Tj ET
+BT /F1 8.0 Tf 0.150 0.200 0.250 rg 122.00 108.89 Td (NSL-KDD \(Canadian Inst. for Cybersecurity\)) Tj ET
+BT /F2 8.0 Tf 0.070 0.160 0.290 rg 312.00 108.89 Td (ï Total Samples:) Tj ET
+BT /F1 8.0 Tf 0.150 0.200 0.250 rg 388.00 108.89 Td (148,517 rows \(125,973 Train + 22,544 Test\)) Tj ET
+BT /F2 8.0 Tf 0.070 0.160 0.290 rg 46.00 91.89 Td (ï Feature Count:) Tj ET
+BT /F1 8.0 Tf 0.150 0.200 0.250 rg 122.00 91.89 Td (48 Features \(41 Raw NSL-KDD + 7 Derived\)) Tj ET
+BT /F2 8.0 Tf 0.070 0.160 0.290 rg 312.00 91.89 Td (ï Target Classes:) Tj ET
+BT /F1 8.0 Tf 0.150 0.200 0.250 rg 388.00 91.89 Td (5 Classes \(Normal, DoS, Probe, R2L, U2R\)) Tj ET
+BT /F2 8.0 Tf 0.070 0.160 0.290 rg 46.00 74.89 Td (ï 5 Models Used:) Tj ET
+BT /F1 8.0 Tf 0.150 0.200 0.250 rg 122.00 74.89 Td (RF \(Bin/Multi\), DNN \(Bin/Multi\), IsoForest) Tj ET
+BT /F2 8.0 Tf 0.070 0.160 0.290 rg 312.00 74.89 Td (ï Top Metrics:) Tj ET
+BT /F1 8.0 Tf 0.150 0.200 0.250 rg 388.00 74.89 Td (80.74% Acc \(DNN\) | 98.53% Prec \(IsoForest\)) Tj ET
+BT /F2 8.0 Tf 0.070 0.160 0.290 rg 46.00 58.89 Td (ï Imbalance Fix:) Tj ET
+BT /F1 8.0 Tf 0.150 0.200 0.250 rg 122.00 58.89 Td (class_weight='balanced' + Unsupervised Isolation Forest + Composite Behavioral Features) Tj ET
+0.840 0.860 0.900 RG
+0.60 w
+36.00 37.89 m 559.28 37.89 l S
+BT /F1 8.0 Tf 0.450 0.490 0.550 rg 36.00 23.89 Td (AI-Based Cybersecurity Threat Detection  ï  Dataset & Model Viva Questions & Answers \(Q1 - Q12\)) Tj ET
+BT /F2 8.0 Tf 0.300 0.350 0.420 rg 507.28 23.89 Td (Page 4 of 4) Tj ET
+endstream
+endobj
+13 0 obj
+<< /Type /Page /Parent 5 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R /F4 4 0 R >> >> /Contents 12 0 R >>
+endobj
+14 0 obj
+<< /Type /Catalog /Pages 5 0 R >>
+endobj
+xref
+0 15
+0000000000 65535 f 
+0000000015 00000 n 
+0000000112 00000 n 
+0000000214 00000 n 
+0000000319 00000 n 
+0000000419 00000 n 
+0000000496 00000 n 
+0000007750 00000 n 
+0000007912 00000 n 
+0000015043 00000 n 
+0000015205 00000 n 
+0000022298 00000 n 
+0000022462 00000 n 
+0000029927 00000 n 
+0000030091 00000 n 
+trailer
+<< /Size 15 /Root 14 0 R >>
+startxref
+30141
+%%EOF

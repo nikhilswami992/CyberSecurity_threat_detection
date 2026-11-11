@@ -1,0 +1,12 @@
+{
+  "name": "vectrax-ai-cybersecurity-threat-detection",
+  "version": "1.0.0",
+  "private": true,
+  "description": "VECTRAX AI — Real-Time Cybersecurity Threat Detection & Automated SOAR Pipeline",
+  "scripts": {
+    "dev": "./venv/bin/python run_pipeline.py --api",
+    "start": "./venv/bin/python run_pipeline.py",
+    "train": "./venv/bin/python run_pipeline.py --train",
+    "test": "./venv/bin/python run_pipeline.py --verify"
+  }
+}

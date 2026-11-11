@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThreatGuard AI — AI-Based Cybersecurity Threat Detection</title>
+    <!-- Strictly 2 Font Families: Space Grotesk (Display & Tabular Numerals) + DM Sans (Body & UI) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Single Consistent Icon Family: Font Awesome 6 Solid -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="site-shell">
+
+        <!-- Mobile Sidebar Backdrop -->
+        <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+             LEFT SIDEBAR NAVIGATION (WARM STONE #F2EFE9 WITH SMOOTH ANIMATIONS)
+             ═══════════════════════════════════════════════════════════════════ -->
+        <aside class="site-sidebar" id="sidebar" aria-label="Sidebar Navigation">
+            <!-- Brand Header inside Sidebar -->
+            <div class="sidebar-brand" data-view-trigger="dashboard" role="button" tabindex="0" aria-label="ThreatGuard AI Home">
+                <div class="brand-mark" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2L4 5.5V11.5C4 16.8 7.4 21.6 12 23C16.6 21.6 20 16.8 20 11.5V5.5L12 2Z" stroke="#1B4D3E" stroke-width="2.2"/>
+                        <path d="M9 12L11 14L15.5 9.5" stroke="#1B4D3E" stroke-width="2.2" stroke-linecap="square"/>
+                    </svg>
+                </div>
+                <div class="brand-copy">
+                    <span class="brand-name">ThreatGuard AI</span>
+                    <span class="brand-tagline">AI Cyber Threat Detection</span>
+                </div>
+            </div>
+
+            <!-- Navigation Menu -->
+            <div class="sidebar-nav-section">
+                <div class="sidebar-section-label mono">NAVIGATION MENU</div>
+                <nav class="sidebar-nav" aria-label="Main Views">
+                    <button type="button" class="nav-item sidebar-link active" data-view="dashboard">
+                        <span class="sidebar-link-left">
+                            <span class="nav-index mono">01</span>
+                            <i class="fa-solid fa-chart-line nav-icon" aria-hidden="true"></i>
+                            <span class="nav-label">Live Overview</span>
+                        </span>
+                    </button>
+
+                    <button type="button" class="nav-item sidebar-link" data-view="threats">
+                        <span class="sidebar-link-left">
+                            <span class="nav-index mono">02</span>
+                            <i class="fa-solid fa-shield-halved nav-icon" aria-hidden="true"></i>
+                            <span class="nav-label">Threat Log</span>
+                        </span>
+                        <span class="nav-counter mono" id="active-alert-badge">0</span>
+                    </button>
+
+                    <button type="button" class="nav-item sidebar-link" data-view="sandbox">
+                        <span class="sidebar-link-left">
+                            <span class="nav-index mono">03</span>
+                            <i class="fa-solid fa-flask nav-icon" aria-hidden="true"></i>
+                            <span class="nav-label">Test a Packet</span>
+                        </span>
+                    </button>
+
+                    <button type="button" class="nav-item sidebar-link" data-view="siem">
+                        <span class="sidebar-link-left">
+                            <span class="nav-index mono">04</span>
+                            <i class="fa-solid fa-database nav-icon" aria-hidden="true"></i>
+                            <span class="nav-label">Security Database</span>
+                        </span>
+                    </button>
+
+                    <button type="button" class="nav-item sidebar-link" data-view="blocklist">
+                        <span class="sidebar-link-left">
+                            <span class="nav-index mono">05</span>
+                            <i class="fa-solid fa-ban nav-icon" aria-hidden="true"></i>
+                            <span class="nav-label">Blocked IPs</span>
+                        </span>
+                        <span class="nav-counter mono" id="tab-blocked-count">0</span>
+                    </button>
+
+                    <button type="button" class="nav-item sidebar-link" data-view="models">
+                        <span class="sidebar-link-left">
+                            <span class="nav-index mono">06</span>
+                            <i class="fa-solid fa-microchip nav-icon" aria-hidden="true"></i>
+                            <span class="nav-label">AI Accuracy</span>
+                        </span>
+                    </button>
+
+                    <button type="button" class="nav-item sidebar-link" data-view="live">
+                        <span class="sidebar-link-left">
+                            <span class="nav-index mono">07</span>
+                            <i class="fa-solid fa-tower-broadcast nav-icon" aria-hidden="true"></i>
+                            <span class="nav-label">Live Wireshark</span>
+                        </span>
+                        <span class="nav-live-state mono" id="nav-live-state" hidden>ON</span>
+                        <span class="nav-counter mono" id="nav-live-flagged" hidden>0</span>
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Sidebar Bottom: Live Network Risk Level & Quick Actions -->
+            <div class="sidebar-footer">
+                <div class="sidebar-posture-box">
+                    <div class="sidebar-posture-head">
+                        <span class="mono">NETWORK RISK</span>
+                        <span class="status-tag tag-nominal mono" id="posture-level-badge">SAFE / NORMAL</span>
+                    </div>
+                    <div class="sidebar-posture-track">
+                        <div class="sidebar-posture-fill" id="posture-meter-fill" style="width: 18%;"></div>
+                    </div>
+                    <div class="sidebar-posture-meta mono">
+                        <span class="status-dot" aria-hidden="true"></span> 5 AI Models Active
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+             RIGHT WORKSPACE (TOP BAR + MAIN VIEWS + FOOTER)
+             ═══════════════════════════════════════════════════════════════════ -->
+        <div class="site-workspace">
+
+            <!-- Top Utility Header -->
+            <header class="site-header">
+                <div class="header-top-row">
+                    <div class="header-left-title">
+                        <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation Menu">
+                            <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                        </button>
+                        <div>
+                            <span class="header-kicker mono">THREATGUARD AI // LIVE CONSOLE</span>
+                            <h2 class="header-view-title" id="page-title">01 // Live Overview — Real-Time AI Threat Detection</h2>
+                        </div>
+                    </div>
+
+                    <!-- Right Utility Controls -->
+                    <div class="header-actions">
+                        <div class="search-field-compact">
+                            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                            <input type="text" id="global-quick-search" aria-label="Search threats" placeholder="Search IP or attack type...">
+                        </div>
+
+                        <button type="button" class="btn-utility mono" id="pause-feed-btn" title="Pause or Resume Live Traffic">
+                            <span class="status-dot" id="stream-dot" aria-hidden="true"></span>
+                            <i class="fa-solid fa-pause" aria-hidden="true"></i>
+                            <span id="pause-feed-label">Live Feed: On</span>
+                        </button>
+
+                        <button type="button" class="icon-utility-btn" id="notifications-btn" aria-label="Recent Attack Alerts" title="Recent Attack Alerts">
+                            <i class="fa-solid fa-bell" aria-hidden="true"></i>
+                            <span class="notif-indicator" id="notif-dot"></span>
+                        </button>
+
+                        <button type="button" class="icon-utility-btn" id="settings-btn" aria-label="System Settings" title="System Settings">
+                            <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+                        </button>
+
+                        <span class="header-clock mono" id="clock" aria-label="Current Time">00:00:00</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ═══════════════════════════════════════════════════════════════════
+                 MAIN APPLICATION VIEWS
+                 ═══════════════════════════════════════════════════════════════════ -->
+            <main class="site-main">
+
+                <!-- ───────────────────────────────────────────────────────────────
+                     VIEW 01: LIVE OVERVIEW
+                     ─────────────────────────────────────────────────────────────── -->
+                <div class="view-panel view-active" id="view-dashboard">
+
+                    <!-- SECTION 1 (WARM ALABASTER #FAF8F4)
+                         Redesigned Visual Overview: Editorial + Live AI Flow Diagram + Radar & Visual KPI Cards -->
+                    <section class="color-band band-alabaster">
+                        <div class="band-container hero-split-grid">
+
+                            <!-- Left Column: Headline + Interactive 4-Step Visual AI Flow + Live Packet Ticker -->
+                            <div class="hero-editorial-col reveal-on-scroll">
+                                <div class="hero-status-strip mono">
+                                    <span class="hero-live-pill">
+                                        <span class="pulse-ring-dot" aria-hidden="true"></span>
+                                        AI PROTECTION ACTIVE
+                                    </span>
+                                    <span class="hero-chip"><i class="fa-solid fa-microchip" aria-hidden="true"></i> 5 AI Models</span>
+                                    <span class="hero-chip"><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i> 48 Clues/Packet</span>
+                                    <span class="hero-chip"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Auto-Firewall</span>
+                                </div>
+
+                                <h1 class="display-headline">
+                                    Detect and block <span class="headline-green-accent">cyber attacks</span> in real time.
+                                </h1>
+
+                                <p class="body-lead">
+                                    ThreatGuard AI inspects every network connection using 5 trained machine learning models to stop hackers before they reach your server.
+                                </p>
+
+                                <!-- Visual 3-Pillar Feature Highlights (Replaces the long text paragraph) -->
+                                <div class="hero-pillars-grid">
+                                    <div class="hero-pillar-card">
+                                        <div class="pillar-icon icon-pine">
+                                            <i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="pillar-body">
+                                            <strong>48 Behavior Clues</strong>
+                                            <span>Checks packet size, speed &amp; error flags</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="hero-pillar-card">
+                                        <div class="pillar-icon icon-slate">
+                                            <i class="fa-solid fa-brain" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="pillar-body">
+                                            <strong>5 AI Models Voting</strong>
+                                            <span>Spots floods, port scans &amp; new threats</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="hero-pillar-card">
+                                        <div class="pillar-icon icon-vermilion">
+                                            <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="pillar-body">
+                                            <strong>Instant IP Blocking</strong>
+                                            <span>Blocks attacker IPs in under 2 seconds</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- NEW VISUAL ELEMENT: Interactive 4-Step AI Protection Flow Diagram -->
+                                <div class="hero-flow-diagram" aria-label="How ThreatGuard AI Inspects Traffic">
+                                    <div class="flow-diagram-header mono">
+                                        <span><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> LIVE AI INSPECTION PIPELINE</span>
+                                        <span class="flow-stage-tag" id="hero-flow-status-tag">SCANNING LIVE TRAFFIC</span>
+                                    </div>
+
+                                    <div class="flow-nodes-row">
+                                        <div class="flow-node">
+                                            <div class="flow-node-icon icon-slate">
+                                                <i class="fa-solid fa-globe" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="flow-node-title">1. Network Traffic</div>
+                                            <div class="flow-node-sub mono">TCP · UDP · ICMP</div>
+                                        </div>
+
+                                        <div class="flow-connector" aria-hidden="true">
+                                            <span class="flow-packet-dot"></span>
+                                        </div>
+
+                                        <div class="flow-node">
+                                            <div class="flow-node-icon icon-pine">
+                                                <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="flow-node-title">2. 48-Clue Check</div>
+                                            <div class="flow-node-sub mono">Size · Speed · Flags</div>
+                                        </div>
+
+                                        <div class="flow-connector" aria-hidden="true">
+                                            <span class="flow-packet-dot delay-1"></span>
+                                        </div>
+
+                                        <div class="flow-node flow-node-active">
+                                            <div class="flow-node-icon icon-pine-solid">
+                                                <i class="fa-solid fa-brain" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="flow-node-title">3. 5-Model AI Vote</div>
+                                            <div class="flow-node-sub mono">RF + Neural + Iso</div>
+                                        </div>
+
+                                        <div class="flow-connector" aria-hidden="true">
+                                            <span class="flow-packet-dot delay-2"></span>
+                                        </div>
+
+                                        <div class="flow-node">
+                                            <div class="flow-node-icon icon-vermilion">
+                                                <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="flow-node-title">4. Auto-Firewall</div>
+                                            <div class="flow-node-sub mono">Allow or Block IP</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Live Inspected Packet Ticker Bar -->
+                                    <div class="hero-live-ticker mono" id="hero-live-packet-ticker">
+                                        <span class="ticker-badge">LAST CHECKED</span>
+                                        <span class="ticker-text" id="hero-ticker-text">Waiting for live packet stream...</span>
+                                    </div>
+                                </div>
+
+                                <div class="hero-cta-bar">
+                                    <button type="button" class="btn btn-primary" id="quick-inspect-btn">
+                                        <i class="fa-solid fa-flask" aria-hidden="true"></i> Test a Network Connection
+                                    </button>
+                                    <button type="button" class="btn btn-secondary" data-jump-view="siem">
+                                        <i class="fa-solid fa-database" aria-hidden="true"></i> View Security Database
+                                    </button>
+                                    <a href="/api/export/report?format=csv" download class="btn btn-secondary">
+                                        <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i> Download Report (CSV)
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Right Column: Visual Radar & AI Model Bars + 4 Visual KPI Cards -->
+                            <div class="hero-visual-right-col reveal-on-scroll" id="stream-status-pill">
+
+                                <!-- Top Visual Showcase: Animated Cyber Radar SVG + Live 5-Model Consensus Meters -->
+                                <div class="hero-radar-card">
+                                    <div class="radar-visual-pane">
+                                        <div class="radar-svg-wrap" aria-hidden="true">
+                                            <svg class="radar-svg" viewBox="0 0 140 140" fill="none">
+                                                <!-- Outer & Inner Radar Rings -->
+                                                <circle cx="70" cy="70" r="62" stroke="#D2CBC0" stroke-width="1.2"/>
+                                                <circle cx="70" cy="70" r="44" stroke="#D2CBC0" stroke-width="1" stroke-dasharray="3 3"/>
+                                                <circle cx="70" cy="70" r="26" stroke="#AEC9BC" stroke-width="1.2"/>
+                                                <!-- Crosshairs -->
+                                                <line x1="70" y1="6" x2="70" y2="134" stroke="#E5E0D5" stroke-width="1"/>
+                                                <line x1="6" y1="70" x2="134" y2="70" stroke="#E5E0D5" stroke-width="1"/>
+                                                <!-- Rotating Radar Sweep Hand -->
+                                                <g class="radar-sweep-group">
+                                                    <line x1="70" y1="70" x2="70" y2="10" stroke="#1B4D3E" stroke-width="2" stroke-linecap="round"/>
+                                                    <path d="M70 70 L70 10 A60 60 0 0 1 118 34 Z" fill="rgba(27, 77, 62, 0.14)"/>
+                                                </g>
+                                                <!--Detected Threat & Safe Blips -->
+                                                <circle class="radar-blip blip-safe" cx="46" cy="42" r="4" fill="#1B4D3E"/>
+                                                <circle class="radar-blip blip-alert" cx="98" cy="48" r="4.5" fill="#C83A2B"/>
+                                                <circle class="radar-blip blip-warn" cx="52" cy="96" r="4" fill="#B85D19"/>
+                                                <circle class="radar-blip blip-safe" cx="92" cy="92" r="3.5" fill="#1B4D3E"/>
+                                                <!-- Center Shield Core -->
+                                                <circle cx="70" cy="70" r="12" fill="#1B4D3E"/>
+                                                <path d="M70 63L65 65.5V69.5C65 73 67.1 76 70 77C72.9 76 75 73 75 69.5V65.5L70 63Z" fill="#FAF8F4"/>
+                                            </svg>
+                                        </div>
+                                        <div class="radar-caption mono">
+                                            <span class="radar-status-dot"></span> LIVE THREAT RADAR
+                                        </div>
+                                    </div>
+
+                                    <div class="radar-models-pane">
+                                        <div class="radar-pane-head">
+                                            <span class="card-kicker mono">5-MODEL AI BRAIN STATUS</span>
+                                            <h3 class="radar-pane-title">Live AI Model Accuracy &amp; Health</h3>
+                                        </div>
+
+                                        <div class="mini-model-bars">
+                                            <div class="mini-model-row">
+                                                <div class="mini-model-top mono">
+                                                    <span>Random Forest (Safe vs Attack)</span>
+                                                    <strong>97.2% AUC</strong>
+                                                </div>
+                                                <div class="mini-model-track"><div class="mini-model-fill fill-pine" style="width: 97%;"></div></div>
+                                            </div>
+
+                                            <div class="mini-model-row">
+                                                <div class="mini-model-top mono">
+                                                    <span>Isolation Forest (New Threats)</span>
+                                                    <strong>98.5% Prec</strong>
+                                                </div>
+                                                <div class="mini-model-track"><div class="mini-model-fill fill-pine" style="width: 98.5%;"></div></div>
+                                            </div>
+
+                                            <div class="mini-model-row">
+                                                <div class="mini-model-top mono">
+                                                    <span>Deep Neural Network (MLP)</span>
+                                                    <strong>96.8% Prec</strong>
+                                                </div>
+                                                <div class="mini-model-track"><div class="mini-model-fill fill-slate" style="width: 96.8%;"></div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Bottom 2x2 Visual KPI Cards -->
+                                <div class="hero-ledger-col">
+                                    <div class="ledger-grid">
+                                        <!-- Card 01 -->
+                                        <div class="ledger-cell">
+                                            <div class="ledger-cell-top">
+                                                <span class="ledger-index mono">
+                                                    <span class="kpi-icon-box icon-pine"><i class="fa-solid fa-network-wired" aria-hidden="true"></i></span>
+                                                    01 / CONNECTIONS CHECKED
+                                                </span>
+                                                <span class="status-tag tag-nominal"><i class="fa-solid fa-check" aria-hidden="true"></i> LIVE</span>
+                                            </div>
+                                            <div class="kpi-num-and-spark">
+                                                <div class="ledger-big-number mono" id="stat-total">0</div>
+                                                <!-- Mini Visual Bar Sparkline -->
+                                                <div class="mini-sparkline" id="hero-sparkline-total" aria-hidden="true">
+                                                    <span style="height:40%"></span>
+                                                    <span style="height:65%"></span>
+                                                    <span style="height:50%"></span>
+                                                    <span style="height:85%"></span>
+                                                    <span style="height:60%"></span>
+                                                    <span style="height:95%"></span>
+                                                    <span style="height:75%"></span>
+                                                    <span style="height:90%"></span>
+                                                </div>
+                                            </div>
+                                            <div class="ledger-meta mono">
+                                                Speed: <strong id="conn-rate">1 pkt/s</strong> · Real network traffic data
+                                            </div>
+                                        </div>
+
+                                        <!-- Card 02 -->
+                                        <div class="ledger-cell">
+                                            <div class="ledger-cell-top">
+                                                <span class="ledger-index mono">
+                                                    <span class="kpi-icon-box icon-vermilion"><i class="fa-solid fa-bug-slash" aria-hidden="true"></i></span>
+                                                    02 / ATTACKS DETECTED
+                                                </span>
+                                                <span class="status-tag tag-alert"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> AI ALERT</span>
+                                            </div>
+                                            <div class="ledger-big-number text-vermilion mono" id="stat-attacks">0</div>
+                                            <!-- Visual Attack Share Meter Bar -->
+                                            <div class="kpi-Visual-meter">
+                                                <div class="kpi-meter-fill fill-vermilion" id="hero-attack-ratio-bar" style="width: 35%;"></div>
+                                            </div>
+                                            <div class="ledger-meta mono">
+                                                Attack Share: <strong id="attack-rate">0.0%</strong> of all connections
+                                            </div>
+                                        </div>
+
+                                        <!-- Card 03 -->
+                                        <div class="ledger-cell">
+                                            <div class="ledger-cell-top">
+                                                <span class="ledger-index mono">
+                                                    <span class="kpi-icon-box icon-slate"><i class="fa-solid fa-ban" aria-hidden="true"></i></span>
+                                                    03 / BLOCKED IP ADDRESSES
+                                                </span>
+                                                <span class="status-tag tag-slate" id="block-mode-tag">AUTO-BLOCK ON</span>
+                                            </div>
+                                            <div class="kpi-num-and-spark">
+                                                <div class="ledger-big-number text-slate mono" id="stat-blocked">0</div>
+                                                <div class="kpi-fw-badges mono">
+                                                    <span>iptables</span>
+                                                    <span>UFW</span>
+                                                    <span>pf</span>
+                                                </div>
+                                            </div>
+                                            <div class="ledger-meta mono" id="digest-blocked-sub">
+                                                0 attacker IPs blocked automatically
+                                            </div>
+                                        </div>
+
+                                        <!-- Card 04 -->
+                                        <div class="ledger-cell">
+                                            <div class="ledger-cell-top">
+                                                <span class="ledger-index mono">
+                                                    <span class="kpi-icon-box icon-pine"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
+                                                    04 / AI DETECTION SPEED
+                                                </span>
+                                                <span class="status-tag tag-nominal">FAST (&lt; 0.5s)</span>
+                                            </div>
+                                            <div class="ledger-big-number text-pine mono"><span id="stat-latency">12</span><small>ms</small></div>
+                                            <!-- Visual Speedometer Gauge -->
+                                            <div class="kpi-Visual-meter">
+                                                <div class="kpi-meter-fill fill-pine" id="hero-latency-bar" style="width: 18%;"></div>
+                                            </div>
+                                            <div class="ledger-meta mono">
+                                                AI Precision: <strong id="top-roc-badge">98.5%</strong> · Only 1.2% false alarms
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SECTION 2 (SOFT MINERAL SAGE #EBF1EE)
+                         Live Charts, Traffic Monitor & Security Alerts -->
+                    <section class="color-band band-sage">
+                        <div class="band-container">
+                            <div class="section-header-split reveal-on-scroll">
+                                <div>
+                                    <div class="section-index-line">
+                                        <span class="index-num mono">02 // LIVE MONITOR</span>
+                                        <span class="index-label">NETWORK TRAFFIC &amp; AI ALERTS</span>
+                                    </div>
+                                    <h2 class="section-headline">Live traffic graphs and instant threat alerts.</h2>
+                                </div>
+                                <p class="section-subcopy">
+                                    Watch safe traffic vs. cyber attacks in real time. When the AI spots an attack on the right, you can click it to see why it was flagged and how it was stopped.
+                                </p>
+                            </div>
+
+                            <div class="workbench-asymmetric-grid">
+                                <!-- Left Column: Live Graph + Traffic Wave + What the AI Looks For -->
+                                <div class="workbench-col-primary">
+
+                                    <!-- Panel A: Normal Traffic vs Cyber Attacks -->
+                                    <article class="surface-card reveal-on-scroll">
+                                        <div class="card-header-bar">
+                                            <div>
+                                                <span class="card-kicker mono">LIVE TRAFFIC GRAPH</span>
+                                                <h3 class="card-title">Normal Traffic vs. Cyber Attacks</h3>
+                                            </div>
+                                            <div class="segmented-controls" role="group" aria-label="Chart Time Range">
+                                                <button type="button" class="mini-tab active" data-chart-window="30">Last 30s</button>
+                                                <button type="button" class="mini-tab" data-chart-window="60">Last 60s</button>
+                                                <button type="button" class="mini-tab" id="toggle-attacks-only-btn">Show Attacks Only</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="chart-legend-strip mono">
+                                            <span class="legend-item">
+                                                <span class="legend-marker marker-pine" aria-hidden="true"></span>
+                                                Normal Safe Traffic (Green Square)
+                                            </span>
+                                            <span class="legend-item">
+                                                <span class="legend-marker marker-vermilion" aria-hidden="true"></span>
+                                                Detected Cyber Attacks (Red Triangle)
+                                            </span>
+                                        </div>
+
+                                        <div class="chart-stage-line">
+                                            <canvas id="trafficChart"></canvas>
+                                        </div>
+                                    </article>
+
+                                    <!-- Panel B: Network Traffic Wave -->
+                                    <article class="surface-card reveal-on-scroll">
+                                        <div class="card-header-bar">
+                                            <div>
+                                                <span class="card-kicker mono">TRAFFIC PULSE MONITOR</span>
+                                                <h3 class="card-title">Live Network Activity Wave</h3>
+                                            </div>
+                                            <span class="status-tag tag-nominal mono" id="osc-peak-readout">PEAK: 240 pkt/ms</span>
+                                        </div>
+
+                                        <div class="waveform-stage">
+                                            <canvas id="waveformCanvas"></canvas>
+                                        </div>
+
+                                        <div class="waveform-footer mono">
+                                            <div class="waveform-metrics">
+                                                <span>Update Speed: <strong>0.5 sec</strong></span>
+                                                <span>Data Rate: <strong id="osc-bytes-sec">14.8 KB/s</strong></span>
+                                                <span>False Alarm Rate: <strong>1.20%</strong></span>
+                                            </div>
+                                            <button type="button" class="btn-text-link" data-jump-view="threats">
+                                                View Full Threat Log <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </article>
+
+                                    <!-- Panel C: What the AI Looks For Most -->
+                                    <article class="surface-card feature-split-card reveal-on-scroll">
+                                        <div class="feature-bars-pane">
+                                            <div class="card-header-bar">
+                                                <div>
+                                                    <span class="card-kicker mono">HOW THE AI DECIDES</span>
+                                                    <h3 class="card-title">Top Clues the AI Uses to Spot Attacks</h3>
+                                                </div>
+                                                <button type="button" class="btn-text-link mono" data-jump-view="models">See AI Accuracy →</button>
+                                            </div>
+
+                                            <div class="hbar-list">
+                                                <div class="hbar-row">
+                                                    <span class="hbar-label mono" title="Amount of data sent by the source">Data Sent</span>
+                                                    <div class="hbar-track"><div class="hbar-fill fill-pine" id="hbar-dos" style="width: 84%;"></div></div>
+                                                    <span class="hbar-val mono">84%</span>
+                                                </div>
+                                                <div class="hbar-row">
+                                                    <span class="hbar-label mono" title="Connections going to the same service">Same Service</span>
+                                                    <div class="hbar-track"><div class="hbar-fill fill-pine" id="hbar-probe" style="width: 68%;"></div></div>
+                                                    <span class="hbar-val mono">68%</span>
+                                                </div>
+                                                <div class="hbar-row">
+                                                    <span class="hbar-label mono" title="Half-open or rejected connection attempts">Failed Handshake</span>
+                                                    <div class="hbar-track"><div class="hbar-fill fill-slate" style="width: 61%;"></div></div>
+                                                    <span class="hbar-val mono">61%</span>
+                                                </div>
+                                                <div class="hbar-row">
+                                                    <span class="hbar-label mono" title="Percentage of connections with SYN errors">Error Rate</span>
+                                                    <div class="hbar-track"><div class="hbar-fill fill-slate" style="width: 52%;"></div></div>
+                                                    <span class="hbar-val mono">52%</span>
+                                                </div>
+                                                <div class="hbar-row">
+                                                    <span class="hbar-label mono" title="Number of connections to the same target port">Target Port Load</span>
+                                                    <div class="hbar-track"><div class="hbar-fill fill-ochre" style="width: 38%;"></div></div>
+                                                    <span class="hbar-val mono">38%</span>
+                                                </div>
+                                                <div class="hbar-row">
+                                                    <span class="hbar-label mono" title="Connections per second in a 2-second burst">Burst Speed</span>
+                                                    <div class="hbar-track"><div class="hbar-fill fill-ochre" style="width: 33%;"></div></div>
+                                                    <span class="hbar-val mono">33%</span>
+                                                </div>
+                                                <div class="hbar-row">
+                                                    <span class="hbar-label mono" title="Attempt to gain administrator root shell">Admin Takeover</span>
+                                                    <div class="hbar-track"><div class="hbar-fill fill-vermilion" style="width: 22%;"></div></div>
+                                                    <span class="hbar-val mono">22%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="feature-notes-pane">
+                                            <span class="card-kicker mono">IN PLAIN ENGLISH</span>
+                                            <h4 class="spec-pane-title">Why AI is smarter than basic firewalls</h4>
+                                            <p class="spec-pane-copy">
+                                                A basic firewall only checks port numbers. ThreatGuard AI looks at 48 behavior clues at once—like whether someone is sending hundreds of broken requests per second or trying to guess passwords.
+                                            </p>
+                                            <dl class="spec-kv-list mono">
+                                                <div class="spec-kv-row">
+                                                    <dt>Detection Score (AUC)</dt>
+                                                    <dd id="digest-accuracy-val">97.2% Score</dd>
+                                                </div>
+                                                <div class="spec-kv-row">
+                                                    <dt>Unknown Attack Precision</dt>
+                                                    <dd>98.5% Accurate</dd>
+                                                </div>
+                                                <div class="spec-kv-row">
+                                                    <dt>Clues Checked per Packet</dt>
+                                                    <dd>48 Clues</dd>
+                                                </div>
+                                            </dl>
+                                        </div>
+                                    </article>
+                                </div>
+
+                                <!-- Right Column: Live Security Alerts + Attack Breakdown -->
+                                <div class="workbench-col-secondary">
+
+                                    <!-- Panel D: Live Security Alerts Feed -->
+                                    <article class="surface-card wiretap-feed-card reveal-on-scroll">
+                                        <div class="card-header-bar">
+                                            <div>
+                                                <span class="card-kicker mono">INSTANT WARNINGS</span>
+                                                <h3 class="card-title">Live Security Alerts</h3>
+                                            </div>
+                                            <div class="header-inline-badges">
+                                                <span class="status-tag tag-nominal mono" id="right-alert-counter">LIVE</span>
+                                                <button type="button" class="btn-text-link mono" data-jump-view="threats">See All ↗</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="feed-filter-bar">
+                                            <i class="fa-solid fa-filter" aria-hidden="true"></i>
+                                            <input type="text" id="right-feed-filter" aria-label="Filter live alerts" placeholder="Filter alerts by IP address or attack type...">
+                                        </div>
+
+                                        <!-- Live Streaming Threat Items Container -->
+                                        <div class="threat-feed" id="threat-feed-container" aria-live="polite">
+                                            <div class="empty-state" id="feed-empty-state">
+                                                <i class="fa-solid fa-shield-halved empty-icon" aria-hidden="true"></i>
+                                                <div class="empty-text">Watching network traffic for suspicious activity...</div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Blocked IPs Sub-List -->
+                                        <div class="quarantine-sub-header">
+                                            <span class="card-kicker mono">RECENTLY BLOCKED ATTACKER IPS</span>
+                                            <button type="button" class="btn-text-link mono" data-jump-view="blocklist">Manage Blocked IPs →</button>
+                                        </div>
+                                        <div class="blocked-ip-list" id="blocked-ip-container">
+                                            <div class="empty-state" id="blocklist-empty-state">
+                                                <div class="empty-text">No IP addresses blocked yet</div>
+                                            </div>
+                                        </div>
+                                    </article>
+
+                                    <!-- Panel E: Types of Attacks Detected -->
+                                    <article class="surface-card reveal-on-scroll">
+                                        <div class="card-header-bar">
+                                            <div>
+                                                <span class="card-kicker mono">ATTACK CATEGORIES</span>
+                                                <h3 class="card-title">Types of Cyber Attacks Detected</h3>
+                                            </div>
+                                        </div>
+
+                                        <div class="taxonomy-split-layout">
+                                            <div class="donut-stage">
+                                                <canvas id="threatPieChart"></canvas>
+                                                <div class="donut-center-label">
+                                                    <div class="donut-sub-val mono" id="taxonomy-total-attacks">0 Threats</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="taxonomy-ledger">
+                                                <div class="taxonomy-item">
+                                                    <div class="tax-head">
+                                                        <span class="legend-marker marker-vermilion" aria-hidden="true"></span>
+                                                        <strong>DoS (Server Overload Floods)</strong>
+                                                    </div>
+                                                    <div class="tax-meta mono" id="digest-dos-meta">0 flood attacks detected</div>
+                                                </div>
+                                                <div class="taxonomy-item">
+                                                    <div class="tax-head">
+                                                        <span class="legend-marker marker-ochre" aria-hidden="true"></span>
+                                                        <strong>Port Scans (Hacker Scouting)</strong>
+                                                    </div>
+                                                    <div class="tax-meta mono" id="digest-probe-meta">0 port scans detected</div>
+                                                </div>
+                                                <div class="taxonomy-item">
+                                                    <div class="tax-head">
+                                                        <span class="legend-marker marker-slate" aria-hidden="true"></span>
+                                                        <strong>Password &amp; Admin Hacks</strong>
+                                                    </div>
+                                                    <div class="tax-meta mono" id="digest-r2l-meta">0 login/admin attacks</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SECTION 3 (SINGLE DARK SECTION — DEEP PINE OBSIDIAN #11201A)
+                         4 Simple Steps + Live Connections Table -->
+                    <section class="color-band band-obsidian">
+                        <div class="band-container">
+                            <div class="obsidian-split-grid">
+
+                                <!-- Left Column: How ThreatGuard AI Works in 4 Simple Steps -->
+                                <div class="pipeline-timeline-col reveal-on-scroll">
+                                    <div class="section-index-line obsidian-index">
+                                        <span class="index-num mono">03 // HOW IT WORKS</span>
+                                        <span class="index-label">STEP-BY-STEP AI PROTECTION</span>
+                                    </div>
+                                    <h2 class="obsidian-headline">How ThreatGuard AI protects your network.</h2>
+                                    <p class="obsidian-copy">
+                                        Every network connection passes through 4 automatic steps in less than half a second—from reading the connection details to blocking dangerous hackers.
+                                    </p>
+
+                                    <ol class="pipeline-steps-list">
+                                        <li class="pipeline-step">
+                                            <span class="step-num mono">01</span>
+                                            <div class="step-body">
+                                                <h4>Read Connection Details (48 Clues)</h4>
+                                                <p>Checks the sender IP, service type (web, SSH, FTP), data size, error rates, and connection speed.</p>
+                                            </div>
+                                        </li>
+                                        <li class="pipeline-step">
+                                            <span class="step-num mono">02</span>
+                                            <div class="step-body">
+                                                <h4>Check for Known Attack Patterns</h4>
+                                                <p>Our Random Forest and Deep Neural Network models compare the connection against 125,973 past examples to spot known attacks.</p>
+                                            </div>
+                                        </li>
+                                        <li class="pipeline-step">
+                                            <span class="step-num mono">03</span>
+                                            <div class="step-body">
+                                                <h4>Spot Brand-New (Zero-Day) Threats</h4>
+                                                <p>Our Isolation Forest model checks if the connection looks strange or unusual compared to normal everyday traffic (98.5% precision).</p>
+                                            </div>
+                                        </li>
+                                        <li class="pipeline-step">
+                                            <span class="step-num mono">04</span>
+                                            <div class="step-body">
+                                                <h4>Block the Attacker &amp; Save to Database</h4>
+                                                <p>If an attack is critical, the system automatically blocks the hacker's IP address and saves the record in the SQL database.</p>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </div>
+
+                                <!-- Right Column: Live Network Connections Table -->
+                                <div class="obsidian-table-col reveal-on-scroll">
+                                    <div class="obsidian-table-card">
+                                        <div class="card-header-bar obsidian-card-header">
+                                            <div>
+                                                <span class="card-kicker mono">LIVE TRAFFIC TABLE</span>
+                                                <h3 class="card-title">Recent Network Connections</h3>
+                                            </div>
+                                            <div class="segmented-controls">
+                                                <button type="button" class="btn-obsidian-link mono" data-jump-view="siem">SQL Database ↗</button>
+                                                <button type="button" class="btn-obsidian-link mono" data-jump-view="threats">Full Threat Log ↗</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="threats-table-container obsidian-table-wrap">
+                                            <table class="threats-table obsidian-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Sender IP → Target IP</th>
+                                                        <th>Service</th>
+                                                        <th>AI Decision</th>
+                                                        <th>Risk Score</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="center-live-packets-tbody">
+                                                    <tr>
+                                                        <td colspan="5" class="mono table-empty-cell">Waiting for live network connections...</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+                <!-- ───────────────────────────────────────────────────────────────
+                     VIEW 02: THREAT LOG (ALL MONITORED CONNECTIONS)
+                     ─────────────────────────────────────────────────────────────── -->
+                <div class="view-panel" id="view-threats" style="display: none;">
+                    <section class="color-band band-alabaster">
+                        <div class="band-container">
+                            <div class="section-header-split">
+                                <div>
+                                    <div class="section-index-line">
+                                        <span class="index-num mono">02 // THREAT LOG</span>
+                                        <span class="index-label">COMPLETE NETWORK CONNECTION HISTORY</span>
+                                    </div>
+                                    <h1 class="section-headline">All Checked Connections &amp; Security Alerts</h1>
+                                </div>
+                                <p class="section-subcopy">
+                                    Click on any row in the table below to open a simple summary showing who sent the traffic, what the AI decided, and whether the IP address was blocked.
+                                </p>
+                            </div>
+
+                            <div class="surface-card console-toolbar">
+                                <div class="toolbar-left">
+                                    <div class="search-box">
+                                        <i class="fa-solid fa-magnifying-glass search-icon" aria-hidden="true"></i>
+                                        <input type="text" id="threat-search-input" aria-label="Search connections" placeholder="Search by IP address, ID, service (http, ssh), or attack type...">
+                                    </div>
+                                    <div class="filter-pills" role="group" aria-label="Filter by Risk Level">
+                                        <button type="button" class="filter-pill active" data-filter="all">All Traffic</button>
+                                        <button type="button" class="filter-pill critical" data-filter="critical">Critical Risk</button>
+                                        <button type="button" class="filter-pill high" data-filter="high">High Risk</button>
+                                        <button type="button" class="filter-pill medium" data-filter="medium">Medium Risk</button>
+                                        <button type="button" class="filter-pill info" data-filter="info">Normal / Safe</button>
+                                    </div>
+                                </div>
+                                <div class="toolbar-right">
+                                    <button type="button" class="btn btn-secondary" id="clear-feed-btn">
+                                        <i class="fa-solid fa-broom" aria-hidden="true"></i> Clear List
+                                    </button>
+                                    <a href="/api/export/report?format=csv" download class="btn btn-primary" id="export-csv-btn">
+                                        <i class="fa-solid fa-file-csv" aria-hidden="true"></i> Download CSV Report
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="surface-card">
+                                <div class="card-header-bar">
+                                    <div>
+                                        <span class="card-kicker mono">LIVE CONNECTION LOG</span>
+                                        <h2 class="card-title">Monitored Network Traffic (<span id="threats-total-count" class="mono">0</span> connections)</h2>
+                                    </div>
+                                    <span class="status-tag tag-slate mono">CLICK ANY ROW FOR DETAILS</span>
+                                </div>
+                                <div class="threats-table-container">
+                                    <table class="threats-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Time</th>
+                                                <th>Event ID</th>
+                                                <th>Risk Level</th>
+                                                <th>Attack Type</th>
+                                                <th>Sender IP → Target IP</th>
+                                                <th>Protocol &amp; Service</th>
+                                                <th>Unusual Score (0–1)</th>
+                                                <th>AI Confidence</th>
+                                                <th style="text-align: right;">Quick Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="threats-full-table-body"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ───────────────────────────────────────────────────────────────
+                     VIEW 03: TEST A PACKET (INTERACTIVE AI TESTER)
+                     ─────────────────────────────────────────────────────────────── -->
+                <div class="view-panel" id="view-sandbox" style="display: none;">
+                    <section class="color-band band-alabaster">
+                        <div class="band-container">
+                            <div class="section-header-split">
+                                <div>
+                                    <div class="section-index-line">
+                                        <span class="index-num mono">03 // TEST A PACKET</span>
+                                        <span class="index-label">INTERACTIVE AI THREAT TESTER</span>
+                                    </div>
+                                    <h1 class="section-headline">Test How the AI Detects Cyber Attacks</h1>
+                                </div>
+                                <p class="section-subcopy">
+                                    Pick one of the ready-made examples below (or change the numbers yourself) and click <strong>Run AI Threat Check</strong> to see how all 5 AI models vote.
+                                </p>
+                            </div>
+
+                            <div class="surface-card sandbox-presets-section">
+                                <div class="card-header-bar">
+                                    <div>
+                                        <span class="card-kicker mono">STEP 1: PICK A SAMPLE SCENARIO</span>
+                                        <h2 class="card-title">1-Click Traffic Examples (Attacks &amp; Safe Traffic)</h2>
+                                    </div>
+                                    <span class="status-tag tag-nominal mono">INSTANT AI TEST</span>
+                                </div>
+                                <div class="presets-grid" id="sandbox-presets-container"></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="color-band band-sage">
+                        <div class="band-container">
+                            <div class="sandbox-workspace">
+                                <div class="surface-card">
+                                    <div class="card-header-bar">
+                                        <div>
+                                            <span class="card-kicker mono">STEP 2: CUSTOMIZE CONNECTION DETAILS</span>
+                                            <h2 class="card-title">Network Packet Settings</h2>
+                                        </div>
+                                        <button type="button" class="btn btn-sm btn-secondary" id="sandbox-reset-btn">Reset to Safe Traffic</button>
+                                    </div>
+                                    <form id="sandbox-form" onsubmit="return false;">
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="sb-src-ip">Sender IP Address</label>
+                                                <input type="text" id="sb-src-ip" class="form-control mono" value="185.220.101.42">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="sb-dst-ip">Target Server IP Address</label>
+                                                <input type="text" id="sb-dst-ip" class="form-control mono" value="10.0.1.15">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="sb-protocol">Connection Type (Protocol)</label>
+                                                <select id="sb-protocol" class="form-control mono">
+                                                    <option value="tcp" selected>TCP (Standard Web/App)</option>
+                                                    <option value="udp">UDP (Fast Streaming/DNS)</option>
+                                                    <option value="icmp">ICMP (Ping Message)</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="sb-service">Target Service / Port</label>
+                                                <select id="sb-service" class="form-control mono">
+                                                    <option value="http">http (Website Port 80)</option>
+                                                    <option value="https">https (Secure Web 443)</option>
+                                                    <option value="private" selected>private (Internal Port)</option>
+                                                    <option value="telnet">telnet (Remote Login 23)</option>
+                                                    <option value="ftp">ftp (File Transfer 21)</option>
+                                                    <option value="ssh">ssh (Secure Admin 22)</option>
+                                                    <option value="smtp">smtp (Email Port 25)</option>
+                                                    <option value="dns">dns (Domain Lookup 53)</option>
+                                                    <option value="other">other service</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="sb-flag">Connection Status (TCP Flag)</label>
+                                                <select id="sb-flag" class="form-control mono">
+                                                    <option value="SF">SF — Normal Completed Connection</option>
+                                                    <option value="S0" selected>S0 — Unanswered Request (Flood Sign)</option>
+                                                    <option value="REJ">REJ — Connection Rejected</option>
+                                                    <option value="RSTO">RSTO — Connection Reset</option>
+                                                    <option value="S1">S1 — Handshake Started</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="sb-duration">Connection Length (Seconds)</label>
+                                                <input type="number" id="sb-duration" class="form-control mono" value="0" min="0">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="sb-src-bytes">Bytes Sent by Sender</label>
+                                                <input type="number" id="sb-src-bytes" class="form-control mono" value="0" min="0">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="sb-dst-bytes">Bytes Returned by Server</label>
+                                                <input type="number" id="sb-dst-bytes" class="form-control mono" value="0" min="0">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="sb-count">Connections in Last 2 Seconds (Burst)</label>
+                                                <input type="number" id="sb-count" class="form-control mono" value="380" min="1">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="sb-serror">Connection Error Rate (0.0 to 1.0)</label>
+                                                <input type="number" id="sb-serror" class="form-control mono" value="1.0" min="0" max="1" step="0.05">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="sb-failed-logins">Wrong Password Attempts</label>
+                                                <input type="number" id="sb-failed-logins" class="form-control mono" value="0" min="0">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="sb-root-shell">Admin (Root) Access Gained?</label>
+                                                <select id="sb-root-shell" class="form-control mono">
+                                                    <option value="0" selected>No — Normal User</option>
+                                                    <option value="1">Yes — Admin Root Access Gained</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary btn-block" id="run-ai-inference-btn">
+                                            <i class="fa-solid fa-bolt" aria-hidden="true"></i> Run AI Threat Check
+                                        </button>
+                                    </form>
+                                </div>
+
+                                <div class="surface-card">
+                                    <div class="card-header-bar">
+                                        <div>
+                                            <span class="card-kicker mono">STEP 3: SEE THE AI RESULT</span>
+                                            <h2 class="card-title">AI Threat Check Results</h2>
+                                        </div>
+                                        <span class="status-tag tag-nominal mono" id="sandbox-latency-badge">READY</span>
+                                    </div>
+                                    <div id="sandbox-results-container">
+                                        <div class="sandbox-empty-prompt">
+                                            <i class="fa-solid fa-microscope empty-icon" aria-hidden="true"></i>
+                                            <div class="empty-text">Pick a sample scenario above or click "Run AI Threat Check" to see how the 5 AI models analyze this connection.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ───────────────────────────────────────────────────────────────
+                     VIEW 04: SECURITY DATABASE (SQL) & KNOWN HACKER IP LIST
+                     ─────────────────────────────────────────────────────────────── -->
+                <div class="view-panel" id="view-siem" style="display: none;">
+                    <section class="color-band band-alabaster">
+                        <div class="band-container">
+                            <div class="section-header-split">
+                                <div>
+                                    <div class="section-index-line">
+                                        <span class="index-num mono">04 // SECURITY DATABASE</span>
+                                        <span class="index-label">SQL EVENT SEARCH &amp; KNOWN HACKER IP LIST</span>
+                                    </div>
+                                    <h1 class="section-headline">Search Saved Security Logs &amp; Threat Lists</h1>
+                                </div>
+                                <p class="section-subcopy">
+                                    Every network connection is saved into our SQLite database. Use the 1-click buttons below to search recent events, view critical attacks, or check known malicious IP addresses from public threat lists.
+                                </p>
+                            </div>
+
+                            <!-- Interactive SQL Query Console -->
+                            <div class="surface-card">
+                                <div class="card-header-bar">
+                                    <div>
+                                        <span class="card-kicker mono">LIVE SQL DATABASE SEARCH</span>
+                                        <h2 class="card-title">Search Stored Network Events (<code>siem_events</code>)</h2>
+                                    </div>
+                                    <span class="status-tag tag-nominal mono" id="sql-exec-time">READY</span>
+                                </div>
+
+                                <div class="filter-pills" style="margin-bottom: 14px;">
+                                    <button type="button" class="filter-pill active" data-sql-preset="recent">01. Show Latest 15 Connections</button>
+                                    <button type="button" class="filter-pill" data-sql-preset="critical">02. Show Critical Attacks Only</button>
+                                    <button type="button" class="filter-pill" data-sql-preset="groupby">03. Count Attacks by Category</button>
+                                    <button type="button" class="filter-pill" data-sql-preset="osint_join">04. Match with Known Hacker IPs</button>
+                                </div>
+
+                                <div class="sql-query-bar">
+                                    <input type="text" id="siem-sql-input" class="form-control mono" aria-label="SQL Search Query"
+                                        value="SELECT id, timestamp, src_ip, dst_ip, protocol, service, attack_category, severity, anomaly_score, osint_feed FROM siem_events ORDER BY timestamp DESC LIMIT 15">
+                                    <button type="button" class="btn btn-primary" id="run-sql-query-btn">
+                                        <i class="fa-solid fa-play" aria-hidden="true"></i> Run Search
+                                    </button>
+                                </div>
+
+                                <div class="threats-table-container" style="max-height: 320px;">
+                                    <table class="threats-table" id="siem-sql-table">
+                                        <thead id="siem-sql-thead"></thead>
+                                        <tbody id="siem-sql-tbody"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="color-band band-sage">
+                        <div class="band-container">
+                            <!-- Known Malicious IPs from Public Threat Feeds -->
+                            <div class="surface-card">
+                                <div class="card-header-bar">
+                                    <div>
+                                        <span class="card-kicker mono">PUBLIC CYBER THREAT LISTS</span>
+                                        <h2 class="card-title">Known Dangerous IP Addresses (OSINT)</h2>
+                                    </div>
+                                    <span class="status-tag tag-alert mono">VERIFIED THREAT LIST</span>
+                                </div>
+                                <div class="threats-table-container" style="max-height: 340px;">
+                                    <table class="threats-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Dangerous IP</th>
+                                                <th>Reported By</th>
+                                                <th>Known Activity</th>
+                                                <th>Danger Score</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="osint-feeds-tbody"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ───────────────────────────────────────────────────────────────
+                     VIEW 05: BLOCKED IPS & FIREWALL RULES
+                     ─────────────────────────────────────────────────────────────── -->
+                <div class="view-panel" id="view-blocklist" style="display: none;">
+                    <section class="color-band band-alabaster">
+                        <div class="band-container">
+                            <div class="section-header-split">
+                                <div>
+                                    <div class="section-index-line">
+                                        <span class="index-num mono">05 // BLOCKED IPS &amp; FIREWALL</span>
+                                        <span class="index-label">AUTOMATIC ATTACKER BLOCKING</span>
+                                    </div>
+                                    <h1 class="section-headline">Blocked IP Addresses &amp; Firewall Commands</h1>
+                                </div>
+                                <p class="section-subcopy">
+                                    When ThreatGuard AI detects a critical attack, it automatically blocks the sender's IP address in under 2 seconds. You can also block an IP manually below or download ready-to-use firewall commands.
+                                </p>
+                            </div>
+
+                            <div class="surface-card blocklist-actions-bar">
+                                <div class="manual-block-wrapper">
+                                    <div class="manual-block-box">
+                                        <input type="text" id="manual-ip-input" class="form-control mono" aria-label="IP Address to Block" placeholder="Type an IP address to block (e.g., 203.0.113.50)...">
+                                        <button type="button" class="btn btn-danger" id="manual-block-btn">
+                                            <i class="fa-solid fa-ban" aria-hidden="true"></i> Block IP Now
+                                        </button>
+                                    </div>
+                                    <div class="form-feedback mono" id="manual-block-feedback"></div>
+                                </div>
+                                <div class="firewall-export-actions">
+                                    <a href="/api/export/firewall?format=iptables" download class="btn btn-secondary">
+                                        <i class="fa-solid fa-download" aria-hidden="true"></i> Download Linux iptables
+                                    </a>
+                                    <a href="/api/export/firewall?format=ufw" download class="btn btn-secondary">
+                                        <i class="fa-solid fa-download" aria-hidden="true"></i> Download Ubuntu UFW
+                                    </a>
+                                    <a href="/api/export/firewall?format=pf" download class="btn btn-secondary">
+                                        <i class="fa-solid fa-download" aria-hidden="true"></i> Download macOS pf.conf
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="blocklist-grid">
+                                <div class="surface-card">
+                                    <div class="card-header-bar">
+                                        <div>
+                                            <span class="card-kicker mono">CURRENTLY BLOCKED</span>
+                                            <h2 class="card-title">Blocked Attacker IP List (<span id="full-blocklist-count" class="mono">0</span> IPs)</h2>
+                                        </div>
+                                    </div>
+                                    <div id="full-blocklist-container"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ───────────────────────────────────────────────────────────────
+                     VIEW 06: AI ACCURACY & MODEL PERFORMANCE
+                     ─────────────────────────────────────────────────────────────── -->
+                <div class="view-panel" id="view-models" style="display: none;">
+                    <section class="color-band band-alabaster">
+                        <div class="band-container">
+                            <div class="section-header-split">
+                                <div>
+                                    <div class="section-index-line">
+                                        <span class="index-num mono">06 // AI MODEL ACCURACY</span>
+                                        <span class="index-label">HOW OUR 5 MACHINE LEARNING MODELS PERFORM</span>
+                                    </div>
+                                    <h1 class="section-headline">Trained AI Models &amp; Test Results</h1>
+                                </div>
+                                <p class="section-subcopy">
+                                    We trained 5 AI models on <strong>125,973 network connections</strong> and tested them on <strong>22,544 brand-new connections</strong> (including 17 unseen attack types) from the NSL-KDD cybersecurity dataset.
+                                </p>
+                            </div>
+
+                            <!-- Easy-to-Understand Breakdown of the 5 AI Models -->
+                            <div class="surface-card architecture-ledger-card">
+                                <div class="arch-ledger-row">
+                                    <div class="arch-col-num mono">MODELS // 01 &amp; 02</div>
+                                    <div class="arch-col-main">
+                                        <h3>Random Forest Models (Safe vs. Attack &amp; Attack Type)</h3>
+                                        <p>Uses 100 decision trees voting together to decide if a connection is safe or an attack, and sorts attacks into 4 types: Server Floods (DoS), Port Scans (Probe), Login Hacks (R2L), or Admin Takeovers (U2R).</p>
+                                    </div>
+                                    <div class="arch-col-metrics mono">
+                                        <div><span>OVERALL SCORE</span><strong>97.2%</strong></div>
+                                        <div><span>FALSE ALARMS</span><strong>2.89%</strong></div>
+                                        <div><span>SPEED</span><strong>~12ms</strong></div>
+                                    </div>
+                                </div>
+
+                                <div class="arch-ledger-row">
+                                    <div class="arch-col-num mono">MODELS // 03 &amp; 04</div>
+                                    <div class="arch-col-main">
+                                        <h3>Deep Neural Network (Multi-Layer Brain)</h3>
+                                        <p>A multi-layer neural network (`48 → 128 → 64 → 32` neurons) that spots complex, hidden patterns across network errors, packet sizes, and login attempts.</p>
+                                    </div>
+                                    <div class="arch-col-metrics mono">
+                                        <div><span>TEST ACCURACY</span><strong>80.74%</strong></div>
+                                        <div><span>PRECISION</span><strong>96.81%</strong></div>
+                                        <div><span>FALSE ALARMS</span><strong>2.78%</strong></div>
+                                    </div>
+                                </div>
+
+                                <div class="arch-ledger-row">
+                                    <div class="arch-col-num mono">MODEL // 05</div>
+                                    <div class="arch-col-main">
+                                        <h3>Isolation Forest (Unknown / Zero-Day Threat Finder)</h3>
+                                        <p>Trained only on normal, safe traffic so it can immediately spot strange, never-before-seen cyber attacks without needing prior attack examples.</p>
+                                    </div>
+                                    <div class="arch-col-metrics mono">
+                                        <div><span>PRECISION</span><strong>98.53%</strong></div>
+                                        <div><span>FALSE ALARMS</span><strong>1.20%</strong></div>
+                                        <div><span>ACCURACY</span><strong>77.42%</strong></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="surface-card" style="margin-top: 24px;">
+                                <div class="card-header-bar">
+                                    <div>
+                                        <span class="card-kicker mono">VERIFIED TEST RESULTS (`models/saved/metrics.json`)</span>
+                                        <h2 class="card-title">Side-by-Side AI Model Comparison Table</h2>
+                                    </div>
+                                </div>
+                                <div class="threats-table-container">
+                                    <table class="metrics-table">
+                                        <thead>
+                                            <tr>
+                                                <th>AI Model Name</th>
+                                                <th>What Job It Does</th>
+                                                <th>Test Accuracy</th>
+                                                <th>Precision (When It Flags an Attack)</th>
+                                                <th>F1 Balance Score</th>
+                                                <th>False Alarm Rate</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="metrics-table-body"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ───────────────────────────────────────────────────────────────
+                     VIEW 07: LIVE WIRESHARK (REAL TRAFFIC, WATCH-ONLY)
+                     ─────────────────────────────────────────────────────────────── -->
+                <div class="view-panel" id="view-live" style="display: none;">
+
+                    <!-- SECTION 1 (ALABASTER): Intro + Capture Controls + Pipeline Counters -->
+                    <section class="color-band band-alabaster">
+                        <div class="band-container">
+                            <div class="section-header-split">
+                                <div>
+                                    <div class="section-index-line">
+                                        <span class="index-num mono">07 // LIVE WIRESHARK</span>
+                                        <span class="index-label">REAL TRAFFIC FROM THIS MAC</span>
+                                    </div>
+                                    <h1 class="section-headline">Watch your Mac's real network traffic</h1>
+                                </div>
+                                <p class="section-subcopy">
+                                    Wireshark catches every packet, ThreatGuard groups them into conversations, and the same 5 AI models check each one. Nothing gets blocked on its own: you look at what's flagged and decide.
+                                </p>
+                            </div>
+
+                            <div class="live-control-grid">
+                                <!-- Capture controls -->
+                                <div class="surface-card live-control-card">
+                                    <div class="card-header-bar">
+                                        <div>
+                                            <span class="card-kicker mono">CAPTURE CONTROLS</span>
+                                            <h2 class="card-title">Pick a connection and press Start</h2>
+                                        </div>
+                                        <span class="status-tag tag-slate mono" id="live-state-tag">
+                                            <i class="fa-solid fa-circle-pause" aria-hidden="true"></i> STOPPED
+                                        </span>
+                                    </div>
+
+                                    <label class="live-field-label" for="live-interface-select">Listen on</label>
+                                    <div class="live-control-row">
+                                        <select id="live-interface-select" class="form-control live-select">
+                                            <option value="">Looking for network connections…</option>
+                                        </select>
+                                        <button type="button" class="btn btn-primary" id="live-start-btn" disabled>
+                                            <i class="fa-solid fa-play" aria-hidden="true"></i> <span>Start Capture</span>
+                                        </button>
+                                    </div>
+
+                                    <div class="live-tool-line mono" id="live-tool-line">
+                                        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Checking for Wireshark…
+                                    </div>
+                                    <div class="live-error-box" id="live-error-box" role="alert" hidden></div>
+
+                                    <div class="live-secondary-actions">
+                                        <button type="button" class="btn btn-secondary btn-sm" id="live-selftest-btn">
+                                            <i class="fa-solid fa-vial" aria-hidden="true"></i> Run Safe Self-Test Scan
+                                        </button>
+                                        <label class="btn btn-secondary btn-sm live-upload-label" for="live-pcap-input">
+                                            <i class="fa-solid fa-file-arrow-up" aria-hidden="true"></i> Check a Saved .pcap File
+                                        </label>
+                                        <input type="file" id="live-pcap-input" accept=".pcap,.pcapng,.cap" class="visually-hidden">
+                                    </div>
+                                    <p class="live-hint">
+                                        <strong>Self-test:</strong> choose <em>This Mac only (Loopback)</em>, press Start, then run the self-test. It knocks on ports 1–300 of your own Mac, which looks like a port scan. Nothing leaves your computer.
+                                    </p>
+                                </div>
+
+                                <!-- Watch-only promise -->
+                                <div class="live-watch-card">
+                                    <div class="live-watch-icon" aria-hidden="true">
+                                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+                                            <path d="M1.5 12C3.8 7.3 7.6 5 12 5s8.2 2.3 10.5 7c-2.3 4.7-6.1 7-10.5 7S3.8 16.7 1.5 12Z" stroke="currentColor" stroke-width="1.8"/>
+                                            <circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.8"/>
+                                        </svg>
+                                    </div>
+                                    <span class="card-kicker mono">WATCH-ONLY MODE</span>
+                                    <h3 class="live-watch-title">No automatic blocking here</h3>
+                                    <p class="live-watch-copy">
+                                        Real traffic is different from the training data, so the AI can be wrong. Flagged conversations wait for you in <strong>Needs your review</strong>. You choose whether an address goes on the block list.
+                                    </p>
+                                    <ul class="live-watch-list">
+                                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Reads packets, never changes them</li>
+                                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Ignores its own dashboard traffic (port 5050)</li>
+                                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Skips background chatter like Bonjour and printer discovery</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Pipeline counters -->
+                            <ol class="live-pipeline" aria-label="What happens to each packet">
+                                <li class="live-step">
+                                    <span class="live-step-num mono">STEP 1</span>
+                                    <span class="live-step-value mono" id="live-count-packets">0</span>
+                                    <span class="live-step-label">Packets caught</span>
+                                    <span class="live-step-meta mono"><span id="live-count-background">0</span> background skipped</span>
+                                </li>
+                                <li class="live-step">
+                                    <span class="live-step-num mono">STEP 2</span>
+                                    <span class="live-step-value mono" id="live-count-open">0</span>
+                                    <span class="live-step-label">Conversations open now</span>
+                                    <span class="live-step-meta mono">grouped by sender &amp; receiver</span>
+                                </li>
+                                <li class="live-step">
+                                    <span class="live-step-num mono">STEP 3</span>
+                                    <span class="live-step-value mono" id="live-count-checked">0</span>
+                                    <span class="live-step-label">Checked by the AI</span>
+                                    <span class="live-step-meta mono"><span id="live-count-safe">0</span> look safe</span>
+                                </li>
+                                <li class="live-step live-step-alert">
+                                    <span class="live-step-num mono">STEP 4</span>
+                                    <span class="live-step-value mono" id="live-count-flagged">0</span>
+                                    <span class="live-step-label">Waiting for your review</span>
+                                    <span class="live-step-meta mono">never blocked automatically</span>
+                                </li>
+                            </ol>
+                        </div>
+                    </section>
+
+                    <!-- SECTION 2 (SAGE): Conversation table -->
+                    <section class="color-band band-sage">
+                        <div class="band-container">
+                            <div class="surface-card">
+                                <div class="card-header-bar">
+                                    <div>
+                                        <span class="card-kicker mono">CHECKED CONVERSATIONS</span>
+                                        <h2 class="card-title">What the AI decided, newest first (<span id="live-table-count" class="mono">0</span>)</h2>
+                                    </div>
+                                    <div class="live-table-tools">
+                                        <div class="segmented-controls" role="group" aria-label="Filter live results">
+                                            <button type="button" class="mini-tab active" data-live-filter="all">All</button>
+                                            <button type="button" class="mini-tab" data-live-filter="flagged">Flagged only</button>
+                                            <button type="button" class="mini-tab" data-live-filter="safe">Safe only</button>
+                                        </div>
+                                        <button type="button" class="btn btn-secondary btn-sm" id="live-clear-btn">
+                                            <i class="fa-solid fa-broom" aria-hidden="true"></i> Clear
+                                        </button>
+                                        <a href="/api/live/export" download class="btn btn-secondary btn-sm">
+                                            <i class="fa-solid fa-file-csv" aria-hidden="true"></i> CSV
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="threats-table-container live-table-wrap">
+                                    <table class="threats-table live-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Time</th>
+                                                <th>AI Verdict</th>
+                                                <th>From → To</th>
+                                                <th>Service</th>
+                                                <th>How It Went</th>
+                                                <th>Data Sent / Received</th>
+                                                <th>Unusual Score</th>
+                                                <th style="text-align: right;">Details</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="live-table-body">
+                                            <tr><td colspan="8" class="mono table-empty-cell">Nothing yet. Press <strong>Start Capture</strong>, then open a website. Conversations show up a few seconds after they finish.</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SECTION 3 (ALABASTER): Review queue + honest notes -->
+                    <section class="color-band band-alabaster">
+                        <div class="band-container live-review-grid">
+                            <div class="surface-card">
+                                <div class="card-header-bar">
+                                    <div>
+                                        <span class="card-kicker mono">NEEDS YOUR REVIEW</span>
+                                        <h2 class="card-title">Addresses the AI flagged</h2>
+                                    </div>
+                                    <span class="status-tag tag-alert mono"><i class="fa-solid fa-hand" aria-hidden="true"></i> YOU DECIDE</span>
+                                </div>
+                                <div id="live-review-list" class="live-review-list">
+                                    <div class="empty-state">
+                                        <div class="empty-text">No flagged addresses. When the AI flags something, it shows up here with a button to block it.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="live-notes">
+                                <span class="card-kicker mono">HOW LIVE VALUES ARE MEASURED</span>
+                                <h2 class="card-title">What the AI can and can't see</h2>
+                                <table class="live-notes-table">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row"><span class="live-note-tag tag-nominal"><i class="fa-solid fa-check" aria-hidden="true"></i> Measured</span></th>
+                                            <td>Length of the conversation, bytes each way, protocol, port, how it opened and closed.</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><span class="live-note-tag tag-nominal"><i class="fa-solid fa-check" aria-hidden="true"></i> Measured</span></th>
+                                            <td>What else happened in the last 2 seconds and the last 255 conversations: repeats, refusals, unanswered requests.</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><span class="live-note-tag tag-slate"><i class="fa-solid fa-arrows-left-right" aria-hidden="true"></i> Translated</span></th>
+                                            <td>Secure web (HTTPS, port 443) is treated as normal web traffic. The 1999-era training data has almost no normal HTTPS.</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><span class="live-note-tag tag-alert"><i class="fa-solid fa-eye-slash" aria-hidden="true"></i> Not visible</span></th>
+                                            <td>Failed logins, admin access and files created live in server logs, not packets. They are set to 0.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+            </main>
+
+            <!-- ═══════════════════════════════════════════════════════════════════
+                 FOOTER BAND (WARM PARCHMENT #E5E0D5)
+                 ═══════════════════════════════════════════════════════════════════ -->
+            <footer class="site-footer">
+                <div class="band-container footer-split">
+                    <div class="footer-brand-col">
+                        <span class="brand-name">ThreatGuard AI — Cybersecurity Threat Detection</span>
+                        <p class="footer-copy">
+                            Real-time AI network threat detection, SQL security logging, and automatic firewall blocking powered by 5 machine learning models trained on 148,517 NSL-KDD records.
+                        </p>
+                    </div>
+                    <div class="footer-links-col mono">
+                        <span>DATASET: NSL-KDD (148,517 RECORDS)</span>
+                        <span>AI MODELS: 5 ACTIVE</span>
+                        <span>SPEED: UNDER 0.5 SECONDS</span>
+                        <span>SERVER: PORT 5050</span>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <!-- ═══════════════ SLIDE-OVER CONNECTION DETAILS DRAWER ═══════════════ -->
+    <div class="drawer-backdrop" id="forensics-drawer-backdrop"></div>
+    <aside class="forensics-drawer" id="forensics-drawer" aria-label="Connection Details">
+        <div class="drawer-header">
+            <div>
+                <span class="card-kicker mono" id="drawer-kicker">CONNECTION DETAILS</span>
+                <h3 class="drawer-title" id="drawer-title">Network Event Summary</h3>
+            </div>
+            <button type="button" class="icon-utility-btn" id="close-drawer-btn" aria-label="Close Details">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="drawer-body" id="forensics-drawer-body"></div>
+    </aside>
+
+    <!-- ═══════════════ SYSTEM SETTINGS MODAL ═══════════════ -->
+    <div class="modal-backdrop" id="settings-modal-backdrop">
+        <div class="modal-panel" role="dialog" aria-labelledby="modal-config-title">
+            <div class="modal-header">
+                <div>
+                    <span class="card-kicker mono">SYSTEM SETTINGS</span>
+                    <h3 id="modal-config-title">Live Traffic &amp; Automatic Blocking Controls</h3>
+                </div>
+                <button type="button" class="icon-utility-btn" id="close-settings-btn" aria-label="Close Settings">
+                    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-row">
+                    <div>
+                        <div class="setting-name">Live Network Traffic Feed</div>
+                        <div class="setting-desc">Stream real-time network connections from the NSL-KDD test dataset.</div>
+                    </div>
+                    <button type="button" class="btn btn-sm btn-primary" id="modal-toggle-stream-btn">Active</button>
+                </div>
+                <div class="setting-row">
+                    <div>
+                        <div class="setting-name">Automatic IP Blocking</div>
+                        <div class="setting-desc">Automatically block the sender IP address whenever a Critical attack is detected.</div>
+                    </div>
+                    <button type="button" class="btn btn-sm btn-primary" id="modal-toggle-autoblock-btn">Enabled</button>
+                </div>
+                <div class="setting-row">
+                    <div>
+                        <div class="setting-name">AI Server &amp; Model Status</div>
+                        <div class="setting-desc" id="modal-api-status-text">Checking server status...</div>
+                    </div>
+                    <a href="/api/status" target="_blank" rel="noopener" class="btn btn-sm btn-secondary mono">View Status JSON ↗</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+    <!-- Scripts -->
+    <script src="js/charts.js"></script>
+    <script src="js/threat-feed.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
