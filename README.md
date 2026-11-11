@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🛡️ AI-Based Cybersecurity Threat Detection
 
 An end-to-end, machine learning-driven network security pipeline that ingests live data feeds, flags anomalies, and initiates automated defense actions.
@@ -80,3 +81,6 @@ Then open **http://localhost:5050** in your browser.
 ## 📄 License
 
 This project is developed for cybersecurity research and network defense automation.
+=======
+# CyberSecurity_threat_detection
+>>>>>>> 6fc7b569f3d61f3f5ede7e16067877ddcc7d4d5a
